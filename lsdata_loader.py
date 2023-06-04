@@ -127,7 +127,8 @@ class Data(object):
         user_info_filtered.loc[user_info_filtered['age_level'] == -1, 'age_level'] = 0
         # 性别one-hot
         user_info = pd.get_dummies(user_info_filtered, columns=['gender_id'], prefix=['gender'])
-        ent_set.update(user_info_filtered['user_id'].tolist())
+
+        ent_set.update(user_info['user_id'].tolist())
         print('Number of users: {}'.format(len(ent_set)))
         self.ent2id = {ent: idx for idx, ent in enumerate(ent_set)}
         self.num_ent = len(self.ent2id)
@@ -141,8 +142,10 @@ class Data(object):
         inver_src = []
         inver_dst = []
         inver_rels = []
-
+        
         df = pd.read_json("{}/source_event_preliminary_train_info.json".format(self.data_dir))
+        # 去掉不在ent_set中的三元组
+        df = df[df['inviter_id'].isin(ent_set) & df['voter_id'].isin(ent_set)]
         records = df.to_dict('records')
         for line in records:
             sub, rel, obj = line['inviter_id'], line['event_id'], line['voter_id']
@@ -164,7 +167,7 @@ class Data(object):
         K = 200
         few_shot_valid_cnt = ddict(int)
         df = pd.read_json("{}/target_event_preliminary_train_info.json".format(self.data_dir))
-        records = df.to_dict('records')
+        records = df[df['inviter_id'].isin(ent_set) & df['voter_id'].isin(ent_set)].to_dict('records')
         random.shuffle(records)
         for line in records:
             sub, rel, obj = line['inviter_id'], line['event_id'], line['voter_id']
@@ -191,6 +194,7 @@ class Data(object):
 
         self.triple2idx = dict()
         df = pd.read_json("{}/target_event_preliminary_test_info.json".format(self.data_dir))
+        df = df[df['inviter_id'].isin(ent_set)]
         records = df.to_dict('records')
         
         for line in records:
