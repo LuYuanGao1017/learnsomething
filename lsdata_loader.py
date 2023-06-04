@@ -215,9 +215,7 @@ class Data(object):
         """
         entity feature
         """
-
-
-
+        self.g.ndata['ent_feat'] = torch.tensor(ent_feat)
         # 为DGL图的边赋予对应的关系类型
         self.g.edata["etype"] = torch.Tensor(rels).long()
         # 边掩码
@@ -225,11 +223,6 @@ class Data(object):
         out_edges_mask = [False] * (self.g.num_edges() // 2) + [True] * (self.g.num_edges() // 2)
         self.g.edata["in_edges_mask"] = torch.Tensor(in_edges_mask)
         self.g.edata["out_edges_mask"] = torch.Tensor(out_edges_mask)
-
-        """
-        添加 实体属性
-        """
-
         def get_train_data_loader(split, batch_size, shuffle=True):
             return DataLoader(
                 TrainDataset(
