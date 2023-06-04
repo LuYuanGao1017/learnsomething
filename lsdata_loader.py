@@ -167,7 +167,7 @@ class Data(object):
         K = 200
         few_shot_valid_cnt = ddict(int)
         df = pd.read_json("{}/target_event_preliminary_train_info.json".format(self.data_dir))
-        records = df[df['inviter_id'].isin(ent_set) & df['voter_id'].isin(ent_set)].to_dict('records')
+        records = df.to_dict('records')
         random.shuffle(records)
         for line in records:
             sub, rel, obj = line['inviter_id'], line['event_id'], line['voter_id']
@@ -194,7 +194,6 @@ class Data(object):
 
         self.triple2idx = dict()
         df = pd.read_json("{}/target_event_preliminary_test_info.json".format(self.data_dir))
-        df = df[df['inviter_id'].isin(ent_set)]
         records = df.to_dict('records')
         
         for line in records:
