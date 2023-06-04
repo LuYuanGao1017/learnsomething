@@ -219,9 +219,7 @@ class Data(object):
         rels = rels + inver_rels 
         # 使用源节点列表和目标节点列表构建DGL图，节点数为self.num_ent
         self.g = dgl.graph((src, dst), num_nodes=self.num_ent) 
-        """
-        entity feature
-        """
+        # 实体/节点特征 num_ent * 5 
         user_feat = user_info.iloc[:,1:]
         self.g.ndata['ent_feat'] = torch.tensor(user_feat.values)
         # 为DGL图的边赋予对应的关系类型
