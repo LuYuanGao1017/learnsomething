@@ -116,10 +116,17 @@ class Data(object):
         self.rel2id = {rel: idx for idx, rel in enumerate(rel_set)}
         self.rel2id.update({rel + "_reverse": idx + len(self.rel2id) for idx, rel in enumerate(rel_set)})
         self.num_rel = len(self.rel2id) // 2
+
         # 用户id转换为idx int 原始样本数量299889
         user_info = pd.read_json("{}/user_info.json".format(self.data_dir)) 
-        # 去掉缺失值后还有278282个样本
-        user_info_filtered = user_info[(user_info['gender_id'] != -1) & (user_info['age_level'] != -1) & (user_info['user_level'] != -1)]
+        # 只能去掉等级为-1的样本329个 
+        user_info_filtered = user_info[(user_info['user_level'] != -1)]
+        # 性别-1换为2 
+        user_info_filtered.loc[user_info_filtered['gender_id'] == -1, 'gender_id'] = 2
+        # 年龄-1换为0
+        user_info_filtered.loc[user_info_filtered['age_level'] == -1, 'age_level'] = 0
+        # 性别one-hot
+        user_info = pd.get_dummies(user_info_filtered, columns=['gender_id'], prefix=['gender'])
         ent_set.update(user_info_filtered['user_id'].tolist())
         print('Number of users: {}'.format(len(ent_set)))
         self.ent2id = {ent: idx for idx, ent in enumerate(ent_set)}
@@ -215,7 +222,8 @@ class Data(object):
         """
         entity feature
         """
-        self.g.ndata['ent_feat'] = torch.tensor(ent_feat)
+        user_feat = user_info.iloc[:,1:]
+        self.g.ndata['ent_feat'] = torch.tensor(user_feat.values)
         # 为DGL图的边赋予对应的关系类型
         self.g.edata["etype"] = torch.Tensor(rels).long()
         # 边掩码
