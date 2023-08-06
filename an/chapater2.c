@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-05 15:38:43
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-06 15:12:07
+ * @LastEditTime: 2023-08-06 17:07:28
  * @Description: 
  * @FilePath: \learnsomething\an\chapater2.c
  */
@@ -126,3 +126,24 @@
 //     // CAL(a + 1)  (a + 1 * 2 + 1)=4
 //     return 0;
 // }
+
+// page 14 2.1.5 operator运算符
+// 1. arithmetic operator 算术运算符
+//  + - * 
+
+// int main(){
+//     int a = 3, b = 4;
+//     double c = 1.23, d = 0.24;
+//     printf(" %d + %d = %d\t %d - %d = %d\n", a, b, a + b, a, b, a - b);
+//     printf(" %f * %f = %f\n", c, d, c * d);
+//     return 0;
+// }
+
+//  除法 /
+
+// int main(){
+//     int a = 5, b = 4, c = 5, d = 6;
+//     printf("%d / %d = %d\t %d / %d = %d\t %d / %d = %d\n", a, b, a / b, a, c, a / c, a, d, a / d);
+//     return 0;
+// }
+
