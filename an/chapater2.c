@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-05 15:38:43
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-07 17:34:04
+ * @LastEditTime: 2023-08-07 18:36:26
  * @Description: 
  * @FilePath: \learnsomething\an\chapater2.c
  */
@@ -393,12 +393,130 @@ b被接收但没存储到变量中
 // }
 // 8.round(double x)
 
+// int main(){
+//     double db1 = round(3.40);
+//     double db2 = round(3.45);
+//     double db3 = round(3.50);
+//     double db4 = round(3.55);
+//     double db5 = round(3.60);
+//     printf("db1 = %d, db2 = %d, db3 = %d, db4 = %d, db5 = %d", (int)db1, (int)db2, (int)db3, (int)db4, (int)db5);
+//     return 0;
+// }
+
+// page 28
+// 2.3选择结构
+// 2.3.1 if 语句
+// int main(){
+//     // int n = 5;
+//     int n = 2;
+//     if(n > 3){
+//         n = 9;
+//         printf("n = %d\n", n);
+//     } else {
+//         printf("n = %d\n", n);
+//     }
+//     return 0;
+// }
+
+// int main(){
+//     // int n = 5;
+//     int n = 2;
+//     if(n > 3) {
+//         n = 9;
+//         printf("n = %d\n", n);
+//     } else if(n > 2) {
+//         printf("n = %d\n", n + 1);
+//     } else {
+//         printf("n = %d\n", n);
+//     }
+//     return 0;
+// }
+
+// if条件中 如果表达式是 "!=0"或"==0"
+
+// int main(){
+//     int n = 0, m = 5;
+//     if(n) {
+//         printf("n is not zero!\n");
+//     } else {
+//         printf("n is zero!\n");
+//     }
+//     if(m) {
+//         printf("m is not zero!\n");
+//     } else {
+//         printf("m is zero!\n");
+//     }
+//     return 0;
+// }
+
+// 表达式为 为 "==0" 则可以省略 "==0" 并在表达式前添加非运算符 "!" 
+
+// int main(){
+//     int n = 0, m = 5;
+//     if (!n){
+//         printf("n is zero!\n");
+//     } else {
+//         printf("n is not zero!\n");
+//     }
+//     if (!m){
+//         printf("m is zero!\n");
+//     } else{
+//         printf("m is not zero!\n");
+//     }
+//     return 0;
+// }
+
+// 2.3.2 if语句的嵌套
+
+// int main(){
+//     int n = 3, m = 5;
+//     if(n < 5){
+//         if(m < 5){
+//             printf("m = %d, n = %d, m + n = %d\n", m, n, m + n);
+//         }else{
+//             printf("m = %d, n = %d, m - n = %d\n", m, n, m - n);
+//         }
+//     }else{
+//         printf("hah\n");
+//     }
+//     return 0;
+// }
+
+// switch语句
+// page 32
+
+// int main(){
+//     int a = 1, b = 2;
+//     switch(a + b){
+//         case 2:
+//             printf("a = %d\n", a);
+//             break;
+//         case 3:
+//             printf("b = %d\n", b);
+//             break;
+//         case 4:
+//             printf("%d + %d = %d\n", a, b, a + b);
+//             break;
+//         default:
+//             printf("sad story\n");
+//     }
+//     return 0;
+// }
+
+// page 33
+// 删除break 的情况 break作用在于可以结束当前switch语句
 int main(){
-    double db1 = round(3.40);
-    double db2 = round(3.45);
-    double db3 = round(3.50);
-    double db4 = round(3.55);
-    double db5 = round(3.60);
-    printf("db1 = %d, db2 = %d, db3 = %d, db4 = %d, db5 = %d", (int)db1, (int)db2, (int)db3, (int)db4, (int)db5);
+    int a = 1, b = 2;
+    switch (a + b)
+    {
+    case 2:
+        printf("a = %d\n", a);
+    case 3:
+        printf("b = %d\n", b);
+    case 4:
+        printf("%d + %d = %d\n", a, b, a + b);
+    default:
+        printf("sad story\n");
+    }
     return 0;
 }
