@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-05 15:38:43
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-06 17:07:28
+ * @LastEditTime: 2023-08-07 14:02:51
  * @Description: 
  * @FilePath: \learnsomething\an\chapater2.c
  */
@@ -147,3 +147,51 @@
 //     return 0;
 // }
 
+
+
+// 取模运算符　％　返回被除数与除数相除得到的余数
+
+// int main(){
+//     int a = 5, b = 3, c = 5;
+//     printf("%d %% %d = %d\n %d %% %d = %d", a, b, a % b, a, c, a % c);
+//     return 0;
+// }
+
+// 自增/减运算符
+// 自增运算符有两种写法 i++ 或 ++i
+// 区别在于 i++是先使用i再将i+1 而 ++i是先将i加1再使用i
+// 自减同理
+
+// int main(){
+//     int a = 1, b = 1, n1, n2;
+//     n1 = a++;
+//     n2 = ++b;
+//     printf("n1 = %d a = %d\n", n1, a);
+//     printf("n2 = %d b = %d\n", n2, b);
+//     return 0;
+// }
+
+// 关系运算符 <、>、<=、>=、==、!=
+// 逻辑运算符 && || ！与 或 非
+// 条件运算符 (? :) 三目运算符:需要三个参数的运算符
+//  A ? B : C;
+
+// int main(){
+//     int a = 3, b = 5;
+//     int c = a > b ? 7 : 11;
+//     printf("c = %d\n", c);
+//     return 0;
+// }
+
+// #define MAX(a, b) ((a) > (b) ? (a) : (b))
+// int main(){
+//     int a = 4, b = 3;
+//     printf("c = %d\n", MAX(a, b));
+//     return 0;
+// }
+
+// 位运算符 二进制位 左/右移 对齐 按位与/或/异或/取反运算
+// << 左移 右移 >> 
+// 位运算符优先级没有算术运算符高
+const int INF = (1 << 30) - 1;
+// const int INF = 0x3fffffff;
