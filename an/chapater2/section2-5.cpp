@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-08 15:47:14
+ * @LastEditTime: 2023-08-08 21:39:11
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -89,33 +89,53 @@
 //     return 0;
 // }
 
-int main(){
-    int a[3][3], b[3][3];
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            scanf("%d", &a[i][j]);
-        }
-    }
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            scanf("%d", &b[i][j]);
-        }
-    }
+// int main(){
+//     int a[3][3], b[3][3];
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < 3; j++){
+//             scanf("%d", &a[i][j]);
+//         }
+//     }
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < 3; j++){
+//             scanf("%d", &b[i][j]);
+//         }
+//     }
 
-    int c[3][3];
+//     int c[3][3];
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            c[i][j] = a[i][j] + b[i][j];
-        }
-    }
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < 3; j++){
+//             c[i][j] = a[i][j] + b[i][j];
+//         }
+//     }
     
-    for(int i = 0; i < 3; i++){
-        for (int j = 0; j < 3; j++)
-        {
-            printf("%d\t", c[i][j]);
-        }
-        printf("\n");
-    }
-    return 0;
-}
+//     for(int i = 0; i < 3; i++){
+//         for (int j = 0; j < 3; j++)
+//         {
+//             printf("%d\t", c[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+/*   
+如果数组大小较大(大概10^6级别) 
+则需要将其定义在主函数外面 
+否则会使程序异常退出
+函数内部申请的局部变量来自系统栈 允许申请的空间较小
+
+*/
+
+// int a[1000000];
+
+// int main(){
+//     for(int i = 0; i < 1000000; i++){
+//         a[i] = i;
+//     }    
+//     return 0;
+// }
+
+// 2.5.4 memset 
+// 对数组中每一个元素赋相同值
