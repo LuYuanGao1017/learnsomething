@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-05 15:38:43
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-07 18:36:26
+ * @LastEditTime: 2023-08-08 09:49:49
  * @Description: 
  * @FilePath: \learnsomething\an\chapater2.c
  */
@@ -505,18 +505,105 @@ b被接收但没存储到变量中
 
 // page 33
 // 删除break 的情况 break作用在于可以结束当前switch语句
+
+// int main(){
+//     int a = 1, b = 2;
+//     switch (a + b)
+//     {
+//     case 2:
+//         printf("a = %d\n", a);
+//     case 3:
+//         printf("b = %d\n", b);
+//     case 4:
+//         printf("%d + %d = %d\n", a, b, a + b);
+//     default:
+//         printf("sad story\n");
+//     }
+//     return 0;
+// }
+
+// page 34
+// 循环结构
+// 2.4.1 while语句
+
+// int main(){
+//     int n = 1, sum = 0;
+//     while (n <= 100)
+//     {
+//         sum = sum + n;
+//         n++;
+//     }
+//     printf("sum = %d\n", sum);
+//     return 0;
+// }
+
+
+// int main(){
+//     int n = 12345, count = 0;
+//     while (n)
+//     {
+//         // printf("n = %d\t count = %d\n", n, count);
+//         count = count + n % 10;
+//         n = n / 10;
+//     }
+//     printf("%d\n", count);
+//     return 0;
+// }
+
+// 2.4.2 do..while
+// page 35
+
+// int main(){
+//     int n = 1, sum  = 0;
+//     do
+//     {
+//         sum = sum + n;
+//         n++;
+//     } while (n <= 100);
+//     printf("sum = %d\n", sum);
+//     return 0;   
+// }
+
+// do...while和while不等价 而且do..while不实用
+
+// 2.4.3 for语句
+// page 36
+// for(表达式A; 表达式B; 表达式C)
+
+// int main(){
+//     int i, sum = 0;
+//     // C语言的for 循环 表达式A中不允许定义变量 int i = 1不可以
+//     // C++可以
+//     // C++向下兼容 C的程序可以在C++中运行，但是C++中一些特性不能在C中运行
+//     for(i = 1; i <= 100; i++){
+//         sum = sum + i;
+//     }
+//     printf("sum = %d\n", sum);
+//     return 0;
+// }
+
+// 2.4.4 break和continue语句
+// page 38
+
+// break 直接退出循环
+// int main(){
+//     int n, sum = 0;
+//     for(int i = 1; i <= 100; i++){
+//         sum = sum + i;
+//         if(sum >= 2000) break;
+//     }
+//     printf("sum = %d\n", sum);
+//     return 0;
+// }
+
+// continue 临时结束循环的当前轮回进入下个轮回
+
 int main(){
-    int a = 1, b = 2;
-    switch (a + b)
-    {
-    case 2:
-        printf("a = %d\n", a);
-    case 3:
-        printf("b = %d\n", b);
-    case 4:
-        printf("%d + %d = %d\n", a, b, a + b);
-    default:
-        printf("sad story\n");
+    int sum = 0;
+    for(int i = 1; i <= 5; i++){
+        if (i % 2 == 1) continue;
+        sum = sum + i;
     }
+    printf("sum = %d\n", sum);
     return 0;
 }
