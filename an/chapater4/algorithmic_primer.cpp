@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-09 16:38:40
+ * @LastEditTime: 2023-08-09 21:22:18
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -83,3 +83,39 @@
 // 2.定义一个二维字符数组 通过规律填充 然后输出
 
 // PAT B1036
+
+// int main(){
+//     int n, row;
+//     char s;
+//     scanf("%d %c", &n, &s);
+//     if (n % 2 == 1) row = n / 2 + 1;
+//     else row = n / 2;
+//     for (int i = 0; i < row; i++)
+//     {
+//         if(i == 0 || i == row -1){
+//             for (int j = 0; j < n; j++)
+//             {
+//                 printf("%c", s);
+//             }
+//             printf("\n");
+//         }else{
+//             for (int k = 0; k < n; k++)
+//             {
+//                 if(k == 0 || k == n - 1) printf("%c", s);
+//                 else printf(" ");
+//             }
+//             printf("\n");
+//         }
+//     }
+//     return 0;
+// }
+
+// 3.4 日期处理
+// 平年365天 闰年366天
+
+// codeup 1928 日期差值
+
+int main(){
+
+    return 0;
+}
