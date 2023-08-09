@@ -58,21 +58,28 @@
 // codeup 1934
 // n个数值各不相同 找x返回下标
 
-int main(){
-    int n, x, index = -1;
-    scanf("%d", &n);
-    int a[n];
-    for(int i = 0; i < n; i++){
-        scanf("%d", &a[i]);
-    }
-    scanf("%d", &x);
-    for(int i = 0; i < n; i++){
-        if (a[i] == x)
-        {
-            index = i;
-        }
-    }
-    if (index == -1) printf("%d not in array!\n", x);
-    else printf("%d index is %d", x, index);
-    return 0;
-}
+// int main(){
+//     int n, x, index = -1;
+//     scanf("%d", &n);
+//     int a[n];
+//     for(int i = 0; i < n; i++){
+//         scanf("%d", &a[i]);
+//     }
+//     scanf("%d", &x);
+//     for(int i = 0; i < n; i++){
+//         if (a[i] == x)
+//         {
+//             index = i;
+//         }
+//     }
+//     if (index == -1) printf("%d not in array!\n", x);
+//     else printf("%d index is %d", x, index);
+//     return 0;
+// }
+
+// 3.3 图形输出
+// 图形由若干字符组成
+// 1.通过规律，直接进行输出
+// 2.定义一个二维字符数组 通过规律填充 然后输出
+
+// PAT B1036
