@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-09 10:22:35
+ * @LastEditTime: 2023-08-09 11:26:02
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -189,10 +189,42 @@ Memset 1:
 // 2.5.5 字符数组
 // 1.字符数组初始化
 
-int main(){
-    char str[15] = {'G', 'o', 'o', 'd', ' ', 's', 't', 'o', 'r', 'y', '!'};
-    for(int i = 0; i < 11; i++){
-        printf("%c", str[i]);
-    }
-    return 0;
-}
+// int main(){
+//     char str[15] = {'G', 'o', 'o', 'd', ' ', 's', 't', 'o', 'r', 'y', '!'};
+//     for(int i = 0; i < 11; i++){
+//         printf("%c", str[i]);
+//     }
+//     return 0;
+// } 
+
+// 字符数组可以通过直接赋值字符串来初始化 
+// 仅限于初始化 其他位置不允许直接赋值整个字符串
+
+// int main(){
+
+//     char str[15] = "Good Story!";
+//     for(int i = 0; i < 11; i++){
+//         printf("%c", str[i]);
+//     }
+//     return 0;
+// }
+
+// 2.字符数组的输入输出
+
+// (1)scanf输入和printf输出
+// int main(){
+//     char str[10];
+//     scanf("%s", str);
+//     printf("%s", str);
+//     return 0;
+// }
+
+/* 
+Input: TAT TAT TAT
+Output: TAT 
+%s识别空格作为字符串的结尾后两个TAT不被读入
+*/
+
+// (2)getchar输入和putchar输出
+
+// (3)gets输入和puts输出
