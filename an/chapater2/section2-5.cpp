@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-09 10:00:10
+ * @LastEditTime: 2023-08-09 10:22:35
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -138,43 +138,44 @@
 // }
 
 // 2.5.4 memset 
+// page 46-47
 // 对数组中每一个元素赋相同值
 // 还有fill函数 后续在STL中说
 // 使用memset需添加string.h头文件
 // memset按字节赋值 对每个字节赋相同值
 
-#include <string.h>
+// #include <string.h>
 
-int main(){
-    int a[5] = {1, 2, 3, 4, 5};
-    printf("Original:\n");
-    for(int i = 0; i < 5; i++){
-        printf("%d\t", a[i]);
-    }
-    printf("\n");
-    printf("Memset 0:\n");
-    // 赋初值0
-    memset(a, 0, sizeof(a));
-    for(int i = 0; i < 5; i++){
-        printf("%d\t", a[i]);
-    }
-    printf("\n");
-    printf("Memset -1:\n");
-    // 赋初值-1
-    memset(a, -1, sizeof(a));
-    for(int i = 0; i < 5; i++){
-        printf("%d\t", a[i]);
-    }
-    printf("\n");
-    printf("Memset 1:\n");
-    // 赋初值1
-    memset(a, 1, sizeof(a));
-    for(int i = 0; i < 5; i++){
-        printf("%d\t", a[i]);
-    }
-    printf("\n");
-    return 0;
-}
+// int main(){
+//     int a[5] = {1, 2, 3, 4, 5};
+//     printf("Original:\n");
+//     for(int i = 0; i < 5; i++){
+//         printf("%d\t", a[i]);
+//     }
+//     printf("\n");
+//     printf("Memset 0:\n");
+//     // 赋初值0
+//     memset(a, 0, sizeof(a));
+//     for(int i = 0; i < 5; i++){
+//         printf("%d\t", a[i]);
+//     }
+//     printf("\n");
+//     printf("Memset -1:\n");
+//     // 赋初值-1
+//     memset(a, -1, sizeof(a));
+//     for(int i = 0; i < 5; i++){
+//         printf("%d\t", a[i]);
+//     }
+//     printf("\n");
+//     printf("Memset 1:\n");
+//     // 赋初值1
+//     memset(a, 1, sizeof(a));
+//     for(int i = 0; i < 5; i++){
+//         printf("%d\t", a[i]);
+//     }
+//     printf("\n");
+//     return 0;
+// }
 
 /* Original:
 1       2       3       4       5
@@ -186,3 +187,12 @@ Memset 1:
 16843009        16843009        16843009        16843009        16843009 */
 
 // 2.5.5 字符数组
+// 1.字符数组初始化
+
+int main(){
+    char str[15] = {'G', 'o', 'o', 'd', ' ', 's', 't', 'o', 'r', 'y', '!'};
+    for(int i = 0; i < 11; i++){
+        printf("%c", str[i]);
+    }
+    return 0;
+}
