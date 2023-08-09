@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-09 15:34:37
+ * @LastEditTime: 2023-08-09 16:38:40
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -26,26 +26,53 @@
 
 // PAT B1032
 
-const int MAXN = 100010;
-int scores[MAXN] = {0};
+// const int MAXN = 100010;
+// int scores[MAXN] = {0};
+
+// int main(){
+//     int n, schoolID, score;
+//     scanf("%d", &n);
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d%d", &schoolID, &score);
+//         scores[schoolID] += score;
+//     }
+//     int k = 1, max = -1;
+//     for (int i = 1; i <= n; i++)
+//     {
+//         if (scores[i] > max)
+//         {
+//             max = scores[i];
+//             k = i;
+//         }
+//     }
+//     printf("%d %d\n", k, max);
+//     return 0;
+// }
+
+// 3.2 Find Element
+
+// 给定一些元素 查找某个满足条件的元素
+// 查找操作
+
+// codeup 1934
+// n个数值各不相同 找x返回下标
 
 int main(){
-    int n, schoolID, score;
+    int n, x, index = -1;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d%d", &schoolID, &score);
-        scores[schoolID] += score;
+    int a[n];
+    for(int i = 0; i < n; i++){
+        scanf("%d", &a[i]);
     }
-    int k = 1, max = -1;
-    for (int i = 1; i <= n; i++)
-    {
-        if (scores[i] > max)
+    scanf("%d", &x);
+    for(int i = 0; i < n; i++){
+        if (a[i] == x)
         {
-            max = scores[i];
-            k = i;
+            index = i;
         }
     }
-    printf("%d %d\n", k, max);
+    if (index == -1) printf("%d not in array!\n", x);
+    else printf("%d index is %d", x, index);
     return 0;
 }
