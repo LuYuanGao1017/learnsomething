@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-10 10:56:39
+ * @LastEditTime: 2023-08-10 14:07:02
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -115,48 +115,57 @@
 
 // codeup 1928 日期差值
 
-int month[13][2] = {{0, 0},
-{31, 31}, {28, 29}, {31, 31}, 
-{30, 30}, {31, 31}, {30, 30}, 
-{31, 31}, {31, 31}, {30, 30}, 
-{31, 31}, {30, 30}, {31, 31}};
+// int month[13][2] = {{0, 0},
+// {31, 31}, {28, 29}, {31, 31}, 
+// {30, 30}, {31, 31}, {30, 30}, 
+// {31, 31}, {31, 31}, {30, 30}, 
+// {31, 31}, {30, 30}, {31, 31}};
 
-bool yearjudge(int year){
-    return (year % 4 == 0 && year % 100 !=0) || (year % 400 == 0);
-}
+// bool yearjudge(int year){
+//     return (year % 4 == 0 && year % 100 !=0) || (year % 400 == 0);
+// }
+
+// int main(){
+//     int date1, date2, y1, y2, m1, m2, d1, d2;
+//     scanf("%d%d", &date1, &date2);
+//     printf("date1 = %d\n",date1);
+//     printf("date2 = %d\n",date2);
+//     if(date1 > date2){
+//         int temp = date1;
+//         date1 = date2;
+//         date2 = temp;
+//     }
+//     y1 = date1 / 10000;
+//     y2 = date2 / 10000;
+//     m1 = date1 % 10000 / 100;
+//     m2 = date2 % 10000 / 100;
+//     d1 = date1 % 100;
+//     d2 = date2 % 100;
+//     int days = 1;
+//     while (y1 < y2 || m1 < m2 || d1 < d2)
+//     {
+//         d1++;
+//         if (d1 == month[m1][yearjudge(y1) + 1])
+//         {
+//             m1++;
+//             d1 = 1;
+//         }
+//         if (m1 == 13)
+//         {
+//             y1++;
+//             m1 = 1;
+//         }
+//         days++;
+//     }
+//     printf("days:%d", days);
+//     return 0;
+// }
+
+// 3.5 进制转换
+// 不同进制之间转换
 
 int main(){
-    int date1, date2, y1, y2, m1, m2, d1, d2;
-    scanf("%d%d", &date1, &date2);
-    printf("date1 = %d\n",date1);
-    printf("date2 = %d\n",date2);
-    if(date1 > date2){
-        int temp = date1;
-        date1 = date2;
-        date2 = temp;
-    }
-    y1 = date1 / 10000;
-    y2 = date2 / 10000;
-    m1 = date1 % 10000 / 100;
-    m2 = date2 % 10000 / 100;
-    d1 = date1 % 100;
-    d2 = date2 % 100;
-    int days = 1;
-    while (y1 < y2 || m1 < m2 || d1 < d2)
-    {
-        d1++;
-        if (d1 == month[m1][yearjudge(y1) + 1])
-        {
-            m1++;
-            d1 = 1;
-        }
-        if (m1 == 13)
-        {
-            y1++;
-            m1 = 1;
-        }
-        days++;
-    }
-    printf("days:%d", days);
+    int a, b, d;
+    scanf("%d %d %d", &a, &b, &d);
     return 0;
 }
