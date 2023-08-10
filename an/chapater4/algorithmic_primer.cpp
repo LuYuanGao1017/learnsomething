@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-10 14:07:02
+ * @LastEditTime: 2023-08-10 14:14:41
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -164,8 +164,20 @@
 // 3.5 进制转换
 // 不同进制之间转换
 
-int main(){
-    int a, b, d;
-    scanf("%d %d %d", &a, &b, &d);
-    return 0;
-}
+// int main(){
+//     int a, b, d;
+//     scanf("%d %d %d", &a, &b, &d);
+//     int sum = a + b;
+//     int ans[31], num = 0;
+//     do
+//     {
+//         ans[num++] = sum % d;
+//         sum /= d;
+//     } while (sum != 0);
+
+//     for (int i = num - 1; i >= 0; i--)
+//     {
+//         printf("%d", ans[i]);
+//     }
+//     return 0;
+// }
