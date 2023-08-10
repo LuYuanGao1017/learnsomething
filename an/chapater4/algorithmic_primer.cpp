@@ -2,14 +2,14 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-10 14:14:41
+ * @LastEditTime: 2023-08-10 14:36:20
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
-#include<stdio.h>
+#include <stdio.h>
 // 3.1 简单模拟
 
-// PAT B1001 
+// PAT B1001
 
 // int main(){
 //     int n, count = 0;
@@ -116,9 +116,9 @@
 // codeup 1928 日期差值
 
 // int month[13][2] = {{0, 0},
-// {31, 31}, {28, 29}, {31, 31}, 
-// {30, 30}, {31, 31}, {30, 30}, 
-// {31, 31}, {31, 31}, {30, 30}, 
+// {31, 31}, {28, 29}, {31, 31},
+// {30, 30}, {31, 31}, {30, 30},
+// {31, 31}, {31, 31}, {30, 30},
 // {31, 31}, {30, 30}, {31, 31}};
 
 // bool yearjudge(int year){
@@ -163,6 +163,7 @@
 
 // 3.5 进制转换
 // 不同进制之间转换
+// PAT B1022
 
 // int main(){
 //     int a, b, d;
@@ -178,6 +179,38 @@
 //     for (int i = num - 1; i >= 0; i--)
 //     {
 //         printf("%d", ans[i]);
+//     }
+//     return 0;
+// }
+
+// 3.6 字符串处理
+
+// 仔细分析 输入和输出格式
+// codeup 5901
+// 回文串
+
+// #include <string.h>
+// const int MAXN = 256;
+// bool judge(char s[])
+// {
+//     int slen = strlen(s);
+//     for (int i = 0; i < slen / 2; i++)
+//     {
+//         if (s[i] != s[slen - i - 1])
+//             return false;
+//     }
+//     return true;
+// }
+// int main()
+// {
+//     char str[MAXN];
+//     while (gets(str))
+//     {
+//         bool flag = judge(str);
+//         if (flag)
+//             printf("YES");
+//         else
+//             printf("NO");
 //     }
 //     return 0;
 // }
