@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-10 14:36:20
+ * @LastEditTime: 2023-08-10 15:09:18
  * @Description: 基础代码
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -184,12 +184,12 @@
 // }
 
 // 3.6 字符串处理
-
+// page 95-98
 // 仔细分析 输入和输出格式
 // codeup 5901
 // 回文串
 
-// #include <string.h>
+#include <string.h>
 // const int MAXN = 256;
 // bool judge(char s[])
 // {
@@ -214,3 +214,51 @@
 //     }
 //     return 0;
 // }
+
+// PAT B1009
+
+// int main(){
+//     int num = 0;
+//     char ans[90][90];
+//     while (scanf("%s", ans[num]) != EOF)
+//     {
+//         num++;
+//     }
+//     for (int i = num - 1; i >= 0; i--)
+//     {
+//         printf("%s", ans[i]);
+//         if(i > 0) printf(" ");
+//     }
+//     return 0;
+// }
+
+/*
+Input: Hello World Here I Come
+Input: ^Z
+Output: Come I Here World Hello
+*/
+
+int main()
+{
+    char str[90];
+    gets(str);
+    int len = strlen(str), r = 0, c = 0;
+    char ans[90][90];
+    for (int i = 0; i < len; i++)
+    {
+        if (str[i] != ' ')
+            ans[r][c++] = str[i];
+        else
+        {
+            ans[r][c] = '\0';
+            r++;
+            c = 0;
+        }
+    }
+    for (int i = r; i >= 0; i--)
+    {
+        printf("%s", ans[i]);
+        if (i > 0) printf(" ");
+    }
+    return 0;
+}
