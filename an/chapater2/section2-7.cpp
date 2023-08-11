@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:47:54
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 20:30:38
+ * @LastEditTime: 2023-08-11 20:48:02
  * @Description: 指针pointer
  * @FilePath: \learnsomething\an\chapater2\section2-7.cpp
  */
@@ -82,14 +82,40 @@
 
 // 2.7.4 使用指针变量作为函数参数
 
-void change(int *p){
-    *p = 233;
+// void change(int *p){
+//     *p = 233;
+// }
+
+// int main(){
+//     int a = 1;
+//     int *p = &a;
+//     change(p);
+//     printf("%d\n", a);
+//     return 0;
+// }
+
+// int main()
+// {
+//     int a = 1, b = 2;
+//     printf("Before change:\na = %d, b = %d\n", a, b);
+//     int temp = a;
+//     a = b;
+//     b = temp;
+//     printf("After change:\na = %d, b = %d", a, b);
+//     return 0;
+// }
+
+// 把交换写成函数
+
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 int main(){
-    int a = 1;
-    int *p = &a;
-    change(p);
-    printf("%d\n", a);
-    return 0;
+    int a = 1, b = 2;
+    printf("Before swap:\na = %d, b = %d\n", a, b);
+    swap(&a, &b);
+    printf("After swap:\n a = %d, b = %d", a, b);
 }
