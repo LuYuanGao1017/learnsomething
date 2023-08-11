@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-09 11:26:02
+ * @LastEditTime: 2023-08-11 15:03:23
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -109,7 +109,7 @@
 //             c[i][j] = a[i][j] + b[i][j];
 //         }
 //     }
-    
+
 //     for(int i = 0; i < 3; i++){
 //         for (int j = 0; j < 3; j++)
 //         {
@@ -120,9 +120,9 @@
 //     return 0;
 // }
 
-/*   
-如果数组大小较大(大概10^6级别) 
-则需要将其定义在主函数外面 
+/*
+如果数组大小较大(大概10^6级别)
+则需要将其定义在主函数外面
 否则会使程序异常退出
 函数内部申请的局部变量来自系统栈 允许申请的空间较小
 
@@ -133,11 +133,11 @@
 // int main(){
 //     for(int i = 0; i < 1000000; i++){
 //         a[i] = i;
-//     }    
+//     }
 //     return 0;
 // }
 
-// 2.5.4 memset 
+// 2.5.4 memset
 // page 46-47
 // 对数组中每一个元素赋相同值
 // 还有fill函数 后续在STL中说
@@ -195,9 +195,9 @@ Memset 1:
 //         printf("%c", str[i]);
 //     }
 //     return 0;
-// } 
+// }
 
-// 字符数组可以通过直接赋值字符串来初始化 
+// 字符数组可以通过直接赋值字符串来初始化
 // 仅限于初始化 其他位置不允许直接赋值整个字符串
 
 // int main(){
@@ -212,6 +212,8 @@ Memset 1:
 // 2.字符数组的输入输出
 
 // (1)scanf输入和printf输出
+//  %s用来输入一个字符串并存在字符数组里 识别空格或换行来识别字符串的结束
+
 // int main(){
 //     char str[10];
 //     scanf("%s", str);
@@ -219,12 +221,96 @@ Memset 1:
 //     return 0;
 // }
 
-/* 
+/*
 Input: TAT TAT TAT
-Output: TAT 
+Output: TAT
 %s识别空格作为字符串的结尾后两个TAT不被读入
 */
 
 // (2)getchar输入和putchar输出
 
+// int main()
+// {
+//     char str[5][5];
+
+//     for (int i = 0; i < 3; i++)
+//     {
+//         for (int j = 0; j < 3; j++)
+//         {
+//             str[i][j] = getchar();
+//         }
+//         getchar(); // 把输入中每行末尾的换行符吸收掉
+//     }
+//     for (int i = 0; i < 3; i++)
+//     {
+//         for (int j = 0; j < 3; j++)
+//         {
+//             putchar(str[i][j]);
+//         }
+//         putchar('\n');
+//     }
+//     return 0;
+// }
+
 // (3)gets输入和puts输出
+// gets 识别换行符\n作为输入结束
+// scanf完一个整数后 如果要使用 gets 需要先用getchar接收整数后的换行符
+
+// int main(){
+//     char str1[20];
+//     char str2[5][10];
+//     gets(str1);
+//     for(int i = 0; i < 3; i++){
+//         gets(str2[i]);
+//     }
+//     puts(str1);
+//     for (int i = 0; i < 3; i++)
+//     {
+//         puts(str2[i]);
+//     }
+//     return 0;
+// }
+
+// 2.5.6 string.h头文件
+// 1.strlen() strlen函数可以得到字符数组中第一个\0前的字符的个数
+
+#include <stdio.h>
+#include <string.h>
+
+// int main(){
+//     char str[10];
+//     gets(str);
+//     int len = strlen(str);
+//     printf("%d\n", len);
+//     return 0;
+// }
+
+// 2.strcmp() 返回两个字符串大小的比较结果 按字典序
+// 字典序就是字符串在字典中的顺序
+
+// int main(){
+//     char str1[50], str2[50];
+//     gets(str1);
+//     gets(str2);
+//     int cmp = strcmp(str1, str2);
+//     if (cmp < 0) printf("str1 < str2\n");
+//     else if (cmp > 0) printf("str1 > str2\n");
+//     else printf("str1 == str2\n");
+//     return 0;
+// }
+
+// 3.strcpy()
+//  把一个字符串复制给另一个字符串
+// strcp(str1, str2)把字符数组2复制给字符数组1包括结束字符\0
+int main(){
+    char str1[50], str2[50];
+    gets(str1);
+    gets(str2);
+    strcpy(str1, str2);
+    puts(str1);
+    return 0;
+}
+
+// 4.strcat()
+
+// 2.5.7 sscanf和sprintf
