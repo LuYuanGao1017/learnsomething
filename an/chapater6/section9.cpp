@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 11:02:54
+ * @LastEditTime: 2023-08-11 11:36:30
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -120,26 +120,26 @@ using namespace std;
 // STL标准容器中 只有vector string deque是可以使用sort的
 
 #include <iostream>
-#include <vector>
+// #include <vector>
 
-bool cmp(int a, int b)
-{
-    return a > b;
-}
+// bool cmp(int a, int b)
+// {
+//     return a > b;
+// }
 
-int main()
-{
-    std::vector<int> vi;
-    vi.push_back(3);
-    vi.push_back(1);
-    vi.push_back(2);
-    sort(vi.begin(), vi.end(), cmp);
-    for (int i = 0; i < 3; i++)
-        printf("%d", vi[i]);
-    return 0;
-}
+// int main()
+// {
+//     std::vector<int> vi;
+//     vi.push_back(3);
+//     vi.push_back(1);
+//     vi.push_back(2);
+//     sort(vi.begin(), vi.end(), cmp);
+//     for (int i = 0; i < 3; i++)
+//         cout<<vi[i]<<endl;
+//     return 0;
+// }
 
-// #include<string>
+#include<string>
 // int main(){
 //     string str[3] = {"bbbb", "cc", "aaa"};
 //     sort(str, str + 3);
@@ -152,3 +152,14 @@ aaa
 bbbb
 cc 
 */
+
+bool cmp(string str1, string str2){
+    return str1.length() < str2.length();
+}
+int main(){
+    string str[3] = {"bbbb", "cc", "aaa"};
+    sort(str, str + 3, cmp);
+    for (int i = 0; i < 3; i++)
+        cout<<str[i]<<endl;
+    return 0;
+}
