@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 15:03:23
+ * @LastEditTime: 2023-08-11 15:32:24
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -302,15 +302,53 @@ Output: TAT
 // 3.strcpy()
 //  把一个字符串复制给另一个字符串
 // strcp(str1, str2)把字符数组2复制给字符数组1包括结束字符\0
-int main(){
-    char str1[50], str2[50];
-    gets(str1);
-    gets(str2);
-    strcpy(str1, str2);
-    puts(str1);
-    return 0;
-}
+
+// int main(){
+//     char str1[50], str2[50];
+//     gets(str1);
+//     gets(str2);
+//     strcpy(str1, str2);
+//     puts(str1);
+//     return 0;
+// }
 
 // 4.strcat()
+// 字符串拼接 strcat(str1, str2)把str2拼接到str1后面
+
+// int main(){
+//     char str1[50], str2[50];
+//     gets(str1);
+//     gets(str2);
+//     strcat(str1, str2);
+//     puts(str1);
+//     return 0;
+// }
 
 // 2.5.7 sscanf和sprintf
+
+// int main(){
+//     int n;
+//     char str[100] = "123";
+//     // 把str内容以%d的格式写到n中
+//     sscanf(str, "%d", &n);
+//     printf("%d\n", n);
+//     return 0;
+// }
+
+// int main(){
+//     int n = 233;
+//     char str[100];
+//     // 把n以%d的格式写到str字符数组中
+//     sprintf(str, "%d", n);
+//     printf("%s\n", str);
+//     return 0;
+// }
+
+int main(){
+    int n;
+    double db;
+    char str[100] = "2048:3.14,hello", str2[100];
+    sscanf(str, "%d:%lf,%s", &n, &db, str2);
+    printf("n = %d, db = %.2f, str2 = %s\n", n, db, str2);
+    return 0;
+}
