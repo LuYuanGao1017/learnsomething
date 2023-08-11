@@ -83,19 +83,43 @@
 
 // 函数参数可以不止一个
 
-int MAX(int a, int b, int c){
-    int M;
-    if(a >= b && a >= c) M = a;
-    else if(b >= a && b >= c) M = b;
-    else M = c;
-    return M;
-}
+// int MAX(int a, int b, int c){
+//     int M;
+//     if(a >= b && a >= c) M = a;
+//     else if(b >= a && b >= c) M = b;
+//     else M = c;
+//     return M;
+// }
 
+
+// int main(){
+//     int a, b, c;
+//     scanf("%d%d%d", &a, &b, &c);
+//     printf("%d\n", MAX(a, b, c));
+//     return 0;
+// }
+
+// 2.6.2 main函数
+
+// 2.6.3 以数组作为函数参数
+
+void change(int a[], int b[][5]){
+    a[0] = 1;
+    a[1] = 3;
+    a[2] = 5;
+    b[0][0] = 1;
+}
 
 int main(){
-    int a, b, c;
-    scanf("%d%d%d", &a, &b, &c);
-    printf("%d\n", MAX(a, b, c));
+    int a[3] = {0};
+    int b[5][5] = {0};
+    change(a, b);
+    for (int i = 0; i < 3; i++)
+        printf("%d\n", a[i]);
     return 0;
-
 }
+
+// 2.6.4 函数的嵌套调用
+
+// 2.6.5 函数的递归调用
+
