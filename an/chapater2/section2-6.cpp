@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:46:57
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 15:50:05
+ * @LastEditTime: 2023-08-11 16:30:27
  * @Description: Function函数
  * @FilePath: \learnsomething\an\chapater2\section2-6.cpp
  */
@@ -69,13 +69,33 @@
 
 // (2)局部变量
 
-void change(int x){
-    x = x + 1;
+// void change(int x){
+//     x = x + 1;
+// }
+
+// int main(){
+//     int x = 10;
+//     change(x);
+//     printf("%d\n", x);
+//     return 0;
+// }
+
+
+// 函数参数可以不止一个
+
+int MAX(int a, int b, int c){
+    int M;
+    if(a >= b && a >= c) M = a;
+    else if(b >= a && b >= c) M = b;
+    else M = c;
+    return M;
 }
 
+
 int main(){
-    int x = 10;
-    change(x);
-    printf("%d\n", x);
+    int a, b, c;
+    scanf("%d%d%d", &a, &b, &c);
+    printf("%d\n", MAX(a, b, c));
     return 0;
+
 }
