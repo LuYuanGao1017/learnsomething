@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-08 10:04:16
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 15:32:24
+ * @LastEditTime: 2023-08-11 15:36:23
  * @Description: 数组 page39-54
  * 数组:相同数据类型的变量组合在一起而产生的数据集合
  * @FilePath: \learnsomething\an\chapater2\section2-5.cpp
@@ -325,6 +325,7 @@ Output: TAT
 // }
 
 // 2.5.7 sscanf和sprintf
+// 支持正则表达式
 
 // int main(){
 //     int n;
@@ -344,11 +345,20 @@ Output: TAT
 //     return 0;
 // }
 
+// int main(){
+//     int n;
+//     double db;
+//     char str[100] = "2048:3.14,hello", str2[100];
+//     sscanf(str, "%d:%lf,%s", &n, &db, str2);
+//     printf("n = %d, db = %.2f, str2 = %s\n", n, db, str2);
+//     return 0;
+// }
+
 int main(){
-    int n;
-    double db;
-    char str[100] = "2048:3.14,hello", str2[100];
-    sscanf(str, "%d:%lf,%s", &n, &db, str2);
-    printf("n = %d, db = %.2f, str2 = %s\n", n, db, str2);
+    int n = 12;
+    double db = 3.1415;
+    char str[100] , str2[100] = "good";
+    sprintf(str, "%d:%.2f,%s", n, db, str2);
+    printf("str = %s", str);
     return 0;
 }
