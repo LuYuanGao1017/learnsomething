@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:47:54
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-12 14:04:42
+ * @LastEditTime: 2023-08-12 14:12:35
  * @Description: 指针pointer
  * @FilePath: \learnsomething\an\chapater2\section2-7.cpp
  */
@@ -156,7 +156,7 @@
 
 // 2.指针的引用
 
-void swap(int * &p1, int * &p2){
+void swap(int* &p1, int* &p2){
     int *temp = p1;
     p1 = p2;
     p2 = temp;
@@ -164,7 +164,7 @@ void swap(int * &p1, int * &p2){
 
 int main(){
     int a = 1, b = 2;
-    int *p1 = &a, *p2 = &b;
+    int* p1 = &a, *p2 = &b;
     printf("Before swap:\na = %d, b = %d\n", *p1, *p2);
     swap(p1, p2);
     printf("After swap:\na = %d, b = %d", *p1, *p2);
