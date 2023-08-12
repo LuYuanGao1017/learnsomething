@@ -2,14 +2,14 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 14:13:03
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-12 15:47:14
+ * @LastEditTime: 2023-08-12 15:56:58
  * @Description: Struct
  * @FilePath: \learnsomething\an\chapater2\section2-8.cpp
  */
 
 // 2.8.1 结构体的定义
 
-/* 
+/*
 struct Name
 {
     // 一些基本的数据结构或者自定义的数据类型
@@ -22,7 +22,7 @@ struct studentInfo {// studentInfo 结构体类型名
     char gender; // "F" or "M"
     char name[20];
     char major[20];
-}Alice, Bob, stu[1000];// Alice和Bob两个结构体变量 结构体数组 stu[100] 
+}Alice, Bob, stu[1000];// Alice和Bob两个结构体变量 结构体数组 stu[100]
 
 // 结构体里面能定义除了自身之外的任何数据类型 不过虽然不能定义自己本身 但可以定义自身类型的指针变量
 */
@@ -70,3 +70,20 @@ struct studentInfo {// studentInfo 结构体类型名
 
 // // 赋值
 // stuInf stu = stuInf(10086, 'M');
+
+// 如果重新定义了构造函数 那么必须经过初始化来定义结构体变量
+
+// 为了 有时候可以不初始化 有时候又需要初始化 可以把 默认的构造函数加上
+
+struct stuInf
+{
+    int id;
+    char gender;
+    // 用以不初始化就定义结构体变量
+    stuInf() {}
+    // 只初始化gender
+    stuInf(char _gender) : gender(_gender) {}
+    // 同时初始化id和gender
+    stuInf(int _id, char _gender) : id(_id), gender(_gender) {}
+};
+
