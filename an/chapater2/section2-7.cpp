@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:47:54
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 20:48:02
+ * @LastEditTime: 2023-08-12 14:04:42
  * @Description: 指针pointer
  * @FilePath: \learnsomething\an\chapater2\section2-7.cpp
  */
@@ -107,15 +107,66 @@
 
 // 把交换写成函数
 
-void swap(int *a, int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+// void swap(int *a, int *b){
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+
+// int main(){
+//     int a = 1, b = 2;
+//     printf("Before swap:\na = %d, b = %d\n", a, b);
+//     swap(&a, &b);
+//     printf("After swap:\n a = %d, b = %d", a, b);
+// }
+
+// 2.7.5 引用
+// C++　不使用指针　也能修改传入参数
+// 引用不产生副本　给原变量起了个别名
+// 对引用变量的操作就是对原变量的操作
+
+// 1.引用的含义
+
+// void change(int &x){
+//     x = 1;
+// }
+
+// int main(){
+//     int x = 10;
+//     printf("Before change:\n x = %d\n", x);
+//     change(x);
+//     printf("After change:\n x = %d", x);
+//     return 0;
+// }
+
+// 不管是否使用引用 函数的参数名和实际传入的参数名可以不同
+// 把引用的&和取地址运算符&区分开来
+
+// void change(int &x){
+//     x = 1;
+// }
+
+// int main(){
+//     int a = 10;
+//     printf("Before change:\na = %d\n", a);
+//     change(a);
+//     printf("After change:\na = %d", a);
+//     return 0;
+// }
+
+// 2.指针的引用
+
+void swap(int * &p1, int * &p2){
+    int *temp = p1;
+    p1 = p2;
+    p2 = temp;
 }
 
 int main(){
     int a = 1, b = 2;
-    printf("Before swap:\na = %d, b = %d\n", a, b);
-    swap(&a, &b);
-    printf("After swap:\n a = %d, b = %d", a, b);
+    int *p1 = &a, *p2 = &b;
+    printf("Before swap:\na = %d, b = %d\n", *p1, *p2);
+    swap(p1, p2);
+    printf("After swap:\na = %d, b = %d", *p1, *p2);
+    return 0;
 }
