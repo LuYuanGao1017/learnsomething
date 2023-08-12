@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 14:13:03
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-12 15:56:58
+ * @LastEditTime: 2023-08-12 16:02:28
  * @Description: Struct
  * @FilePath: \learnsomething\an\chapater2\section2-8.cpp
  */
@@ -75,15 +75,39 @@ struct studentInfo {// studentInfo 结构体类型名
 
 // 为了 有时候可以不初始化 有时候又需要初始化 可以把 默认的构造函数加上
 
-struct stuInf
-{
-    int id;
-    char gender;
-    // 用以不初始化就定义结构体变量
-    stuInf() {}
-    // 只初始化gender
-    stuInf(char _gender) : gender(_gender) {}
-    // 同时初始化id和gender
-    stuInf(int _id, char _gender) : id(_id), gender(_gender) {}
-};
+// struct stuInf
+// {
+//     int id;
+//     char gender;
+//     // 用以不初始化就定义结构体变量
+//     stuInf() {}
+//     // 只初始化gender
+//     stuInf(char _gender) : gender(_gender) {}
+//     // 同时初始化id和gender
+//     stuInf(int _id, char _gender) : id(_id), gender(_gender) {}
+// };
 
+#include <stdio.h>
+struct Point
+{
+    int x, y;
+    Point() {}
+    Point(int _x, int _y) : x(_x), y(_y) {}
+} pt[10];
+
+int main()
+{
+    int num = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            pt[num++] = Point(i, j);
+        }
+    }
+    printf("num = %d\n", num);
+    for (int i = 0; i < num; i++)
+        printf("x = %d, y = %d\n", pt[i].x, pt[i].y);
+
+    return 0;
+}
