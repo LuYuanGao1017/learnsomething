@@ -2,8 +2,8 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:06:06
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-13 20:04:14
- * @Description: 黑盒测试
+ * @LastEditTime: 2023-08-13 20:16:58
+ * @Description: 黑盒测试 输入类型 输出类型
  * @FilePath: \learnsomething\an\chapater2\blackboxTest.cpp
  */
 
@@ -74,4 +74,19 @@ int main(){
         printf("%d\n", a + b);
     }
     return 0;
+}
+
+// 输出类型
+
+// (1)正常输出
+// 只需要在每组输出结束之后输出一个换行符\n即可
+
+int main(){
+    int a, b;
+    while (scanf("%d%d", &a, &b) != EOF)
+    {
+        printf("%d\n", a + b);
+        printf("\n");
+    }
+    
 }
