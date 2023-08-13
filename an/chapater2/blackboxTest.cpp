@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:06:06
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-13 20:16:58
+ * @LastEditTime: 2023-08-13 20:21:19
  * @Description: 黑盒测试 输入类型 输出类型
  * @FilePath: \learnsomething\an\chapater2\blackboxTest.cpp
  */
@@ -66,27 +66,30 @@
 // (3) while(T--)
 // 给出测试数据的组数 给出相应数量组数的输入数据
 
-int main(){
-    int T, a, b;
-    scanf("%d", &T);
-    while(T--){
-        scanf("%d%d", &a, &b);
-        printf("%d\n", a + b);
-    }
-    return 0;
-}
+// int main(){
+//     int T, a, b;
+//     scanf("%d", &T);
+//     while(T--){
+//         scanf("%d%d", &a, &b);
+//         printf("%d\n", a + b);
+//     }
+//     return 0;
+// }
 
 // 输出类型
 
 // (1)正常输出
+// (2) 每组数据输出之后额外加一个空行
 // 只需要在每组输出结束之后输出一个换行符\n即可
 
-int main(){
-    int a, b;
-    while (scanf("%d%d", &a, &b) != EOF)
-    {
-        printf("%d\n", a + b);
-        printf("\n");
-    }
+// int main(){
+//     int a, b;
+//     while (scanf("%d%d", &a, &b) != EOF)
+//     {
+//         printf("%d\n", a + b);
+//         printf("\n");
+//     }
     
-}
+// }
+
+// (3) 两组输出数据之间有一个空行最后一组数据后没有空行
