@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:06:06
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-13 20:21:19
+ * @LastEditTime: 2023-08-13 21:21:58
  * @Description: 黑盒测试 输入类型 输出类型
  * @FilePath: \learnsomething\an\chapater2\blackboxTest.cpp
  */
@@ -93,3 +93,18 @@
 // }
 
 // (3) 两组输出数据之间有一个空行最后一组数据后没有空行
+int main(){
+    int T, n, a;
+    scanf("%d", &T);
+    while(T--){
+        int sum = 0;
+        scanf("%d", &n);
+        for(int i = 0; i < n; i++){
+            scanf("%d", &a);
+            sum = sum + a;
+        }
+        printf("%d\n", sum);
+        if (T > 0) printf("\n");
+    }
+    return 0;
+}
