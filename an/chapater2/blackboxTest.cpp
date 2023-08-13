@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:06:06
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-13 19:47:48
+ * @LastEditTime: 2023-08-13 20:04:14
  * @Description: 黑盒测试
  * @FilePath: \learnsomething\an\chapater2\blackboxTest.cpp
  */
@@ -44,20 +44,23 @@
 // (2) while break
 // 满足某个条件时退出中断
 
-int main(){
-    int a, b;
-    while(scanf("%d%d", &a, &b) != EOF){
-        if(a == 0 && b == 0) break;
-        printf("%d\n", a + b);
-    }
-    return 0;
-}
+// int main(){
+//     int a, b;
+//     while(scanf("%d%d", &a, &b) != EOF){
+//         if(a == 0 && b == 0) break;
+//         printf("%d\n", a + b);
+//     }
+//     return 0;
+// }
 
-// 简洁写法
-int main(){
-    int a, b;
-    while (scanf("%d%d", &a, &b) != EOF, a || b)
-        printf("%d\n", a + b);
-    
-}
+// // 简洁写法
+
+// int main(){
+//     int a, b;
+//     while (scanf("%d%d", &a, &b) != EOF, a || b)
+//         printf("%d\n", a + b);
+// }
+
+// a != 0 || b != 0 缩写为 a || b
+
 // (3) while(T--)
