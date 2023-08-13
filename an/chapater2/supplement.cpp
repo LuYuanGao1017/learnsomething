@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:04:59
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-13 14:44:37
+ * @LastEditTime: 2023-08-13 15:11:52
  * @Description: C++中的cin cout 浮点数比较 复杂度
  * @FilePath: \learnsomething\an\chapater2\supplement.cpp
  */
@@ -62,3 +62,25 @@ int main(){
 // 误差处理
 
 // 2.大于运算符
+#define More(a, b) (((a) - (b)) > (eps))
+
+// 3.小于运算符
+#define Less(a, b) (((a) - (b)) < (-eps))
+
+// 4.大于等于运算符
+#define MoreEqu(a, b) (((a) - (b)) > (-eps))
+
+// 5.大于等于运算符
+#define LessEqu(a, b) (((a) - (b)) < (eps))
+
+// 6.圆周率pi
+ const double eps = 1e-8;
+ const double pi = acos(-1.0);
+
+
+//  2.9.3复杂度
+// 1.时间复杂度
+
+// 2.空间复杂度
+
+// 3.编码复杂度
