@@ -64,3 +64,14 @@
 // a != 0 || b != 0 缩写为 a || b
 
 // (3) while(T--)
+// 给出测试数据的组数 给出相应数量组数的输入数据
+
+int main(){
+    int T, a, b;
+    scanf("%d", &T);
+    while(T--){
+        scanf("%d%d", &a, &b);
+        printf("%d\n", a + b);
+    }
+    return 0;
+}
