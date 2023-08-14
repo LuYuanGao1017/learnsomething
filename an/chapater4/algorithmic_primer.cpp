@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-14 14:53:59
+ * @LastEditTime: 2023-08-14 15:40:21
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -105,29 +105,69 @@ using namespace std;
 // }
 
 // 4.2 散列
-// 4.2.1 散列的定义与整数散列
-const int maxn = 100010;
-bool hashTable[maxn] = {false};
-int main(){
+
+// 1.M个整数是否在N个整数中出现
+// const int maxn = 100010;
+// bool hashTable[maxn] = {false};
+// int main(){
+//     int n, m, x;
+//     scanf("%d%d", &n, &m);
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d", &x);
+//         hashTable[x] = true;
+//     }
+//     for (int i = 0; i < m; i++)
+//     {
+//         scanf("%d", &x);
+//         // if (hashTable[x] == true) printf("Yes\n");
+//         if (hashTable[x]) printf("Yes\n");
+//         else printf("No\n");
+//     }
+//     return 0;
+// }
+
+// 2.M个整数在N个整数中出现次数
+const int maxn = 10010;
+int hashTable[maxn] = {0};
+
+int main()
+{
     int n, m, x;
     scanf("%d%d", &n, &m);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &x);
-        hashTable[x] = true;
+        hashTable[x]++;
     }
     for (int i = 0; i < m; i++)
     {
         scanf("%d", &x);
-        // if (hashTable[x] == true) printf("Yes\n");
-        if (hashTable[x]) printf("Yes\n");
-        else printf("No\n");
+        printf("%d ", hashTable[x]);
     }
+
     return 0;
 }
+// 上面两个直接把输入的数作为下标
+// 以空间换时间的方法 且每个数不超过10^5
+
+// 如果输入是10^9就不行了 字符串 也不能直接当下标
+// 散列能把这些转换为一个能接受范围内的整数
+
+// 4.2.1 散列的定义与整数散列
+//  散列函数 
 
 // 4.2.2 字符串hash初步
+
+// 假设字符串由A~Z组成 0~25 26^len - 1最大的整数 len为字符串长度
+int hashFunc(char s[], int len){
+    int id = 0;
+    for (int i = 0; i < len; i++) id = id * 26 + (s[i] - 'A');  //将26进制转换为十进制
+    return id;
+}
+// 如果字符串s长度比较长那么换成整数也会很大
 
 
 // 4.3 递归
 
+// 4.3.1 分治
