@@ -91,4 +91,15 @@ int main()
             }
         }
     }
+    printf("%d\n", num);
+    sort(stu, stu + num, cmp);
+    int r = 1;
+    for(int i = 0; i < num; i++){
+        if(i > 0 && stu[i].score != stu[i - 1].score){
+            r = i + 1;
+        }
+        printf("%s ", stu[i].id);
+        printf("%d %d %d\n", r, stu[i].location_num, stu[i].local_rank);
+    }
+    return 0;
 }
