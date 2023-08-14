@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-14 14:07:34
+ * @LastEditTime: 2023-08-14 14:53:59
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -52,62 +52,82 @@ using namespace std;
 // }
 
 // PAT A1025
-struct testee
-{
-    char id[15];
-    int score;
-    int location_num;
-    int local_rank;
-} stu[300];
+// struct testee
+// {
+//     char id[15];
+//     int score;
+//     int location_num;
+//     int local_rank;
+// } stu[300];
 
-bool cmp(testee a, testee b)
-{
-    if (a.score != b.score)
-        return a.score > b.score;
-    else
-        return strcmp(a.id, b.id) < 0;
-}
+// bool cmp(testee a, testee b)
+// {
+//     if (a.score != b.score)
+//         return a.score > b.score;
+//     else
+//         return strcmp(a.id, b.id) < 0;
+// }
 
-int main()
-{
-    int n, k, num = 0;
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d", &k);
-        for (int j = 0; j < k; j++)
-        {
-            scanf("%s %d", stu[num].id, &stu[num].score);
-            stu[num].location_num = i;
-            num++;
-        }
-        sort(stu + num - k, stu + num, cmp);
-        stu[num - k].location_num = 1;
-        for(int j = num - k + 1; j < num; j++){
-            if(stu[j].score == stu[j - 1].score){
-                stu[j].local_rank = stu[j - 1].local_rank;
-            }else{
-                stu[j].local_rank = j + 1 - (num - k);
-            }
-        }
-    }
-    printf("%d\n", num);
-    sort(stu, stu + num, cmp);
-    int r = 1;
-    for(int i = 0; i < num; i++){
-        if(i > 0 && stu[i].score != stu[i - 1].score){
-            r = i + 1;
-        }
-        printf("%s ", stu[i].id);
-        printf("%d %d %d\n", r, stu[i].location_num, stu[i].local_rank);
-    }
-    return 0;
-}
+// int main()
+// {
+//     int n, k, num = 0;
+//     scanf("%d", &n);
+//     for (int i = 1; i <= n; i++)
+//     {
+//         scanf("%d", &k);
+//         for (int j = 0; j < k; j++)
+//         {
+//             scanf("%s %d", stu[num].id, &stu[num].score);
+//             stu[num].location_num = i;
+//             num++;
+//         }
+//         sort(stu + num - k, stu + num, cmp);
+//         stu[num - k].location_num = 1;
+//         for(int j = num - k + 1; j < num; j++){
+//             if(stu[j].score == stu[j - 1].score){
+//                 stu[j].local_rank = stu[j - 1].local_rank;
+//             }else{
+//                 stu[j].local_rank = j + 1 - (num - k);
+//             }
+//         }
+//     }
+//     printf("%d\n", num);
+//     sort(stu, stu + num, cmp);
+//     int r = 1;
+//     for(int i = 0; i < num; i++){
+//         if(i > 0 && stu[i].score != stu[i - 1].score){
+//             r = i + 1;
+//         }
+//         printf("%s ", stu[i].id);
+//         printf("%d %d %d\n", r, stu[i].location_num, stu[i].local_rank);
+//     }
+//     return 0;
+// }
 
 // 4.2 散列
 // 4.2.1 散列的定义与整数散列
+const int maxn = 100010;
+bool hashTable[maxn] = {false};
+int main(){
+    int n, m, x;
+    scanf("%d%d", &n, &m);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &x);
+        hashTable[x] = true;
+    }
+    for (int i = 0; i < m; i++)
+    {
+        scanf("%d", &x);
+        // if (hashTable[x] == true) printf("Yes\n");
+        if (hashTable[x]) printf("Yes\n");
+        else printf("No\n");
+    }
+    return 0;
+}
 
 // 4.2.2 字符串hash初步
 
 
 // 4.3 递归
+
