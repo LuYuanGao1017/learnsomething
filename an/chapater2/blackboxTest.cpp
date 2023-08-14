@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-12 16:06:06
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-14 09:44:16
+ * @LastEditTime: 2023-08-14 09:46:29
  * @Description: 黑盒测试 输入类型 输出类型
  * @FilePath: \learnsomething\an\chapater2\blackboxTest.cpp
  */
@@ -108,4 +108,3 @@ int main(){
     }
     return 0;
 }
-
