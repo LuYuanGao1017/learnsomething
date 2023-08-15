@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-09 11:49:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-14 15:56:17
+ * @LastEditTime: 2023-08-15 09:44:07
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\algorithmic_primer.cpp
  */
@@ -222,15 +222,3 @@ int main()
     }
     return 0;
 }
-
-// 4.3 递归
-
-// 4.3.1 分治
-
-// 4.3.2 递归
-
-// 4.4 贪心
-
-// 4.4.1 简单贪心
-
-// 4.4.2 区间贪心
