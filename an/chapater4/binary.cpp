@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-16 15:21:19
+ * @LastEditTime: 2023-08-16 15:38:38
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -79,7 +79,7 @@ double f(double R, double h)
 
 double solve(double R, double r){
     double left = 0, right = R, mid;
-    while (left < right)
+    while (right - left > eps)
     {
         mid = (left + right) / 2;
         if (f(R, mid) > r)
