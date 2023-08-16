@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-16 15:38:38
+ * @LastEditTime: 2023-08-16 17:35:56
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -65,40 +65,87 @@
 
 // 装水问题
 
-const double PI = acos(-1.0);
-const double eps = 1e-5;
+// const double PI = acos(-1.0);
+// const double eps = 1e-5;
 
-double f(double R, double h)
+// double f(double R, double h)
+// {
+//     double alpha = 2 * acos((R - h) / R);
+//     double X = 2 * sqrt(R * R - (R - h) * (R - h));
+//     double S1 = alpha * R * R / 2 - X * (R - h) / 2;
+//     double S2 = PI * R * R / 2;
+//     return S1 / S2;
+// }
+
+// double solve(double R, double r){
+//     double left = 0, right = R, mid;
+//     while (right - left > eps)
+//     {
+//         mid = (left + right) / 2;
+//         if (f(R, mid) > r)
+//         {
+//             right = mid;
+//         }else{
+//             left = mid;
+//         }
+//     }
+//     return mid;
+// }
+
+// int main()
+// {
+//     double R, r;
+//     scanf("%lf%lf", &R, &r);
+//     printf("%.4f", solve(R, r));
+//     return 0;
+// }
+
+// 切木棒问题
+
+// N根木棒 长度均已知
+// 切割得到至少K段长度相等的木棒
+// 长度L最长为多长
+//  1 << L << 最短的
+// 3根 10 24 15 假设 K=7
+// L <= 最短的那一根 10
+// L = 10 1 + 2 + 1 = 4 < 7
+// L = (0 + 10) / 2 = 5   2 + 4 + 3 = 9 > 7
+// L = (5 + 10) / 2 = 7   1 + 3 + 2 = 6 < 7
+// L = (5 + 7) / 2 = 6  1 + 4 + 2 = 7 = 7
+
+#include <algorithm>
+using namespace std;
+
+int solve(int N, int Len[], int K)
 {
-    double alpha = 2 * acos((R - h) / R);
-    double X = 2 * sqrt(R * R - (R - h) * (R - h));
-    double S1 = alpha * R * R / 2 - X * (R - h) / 2;
-    double S2 = PI * R * R / 2;
-    return S1 / S2;
-}
-
-double solve(double R, double r){
-    double left = 0, right = R, mid;
-    while (right - left > eps)
+    int left = 0, right = Len[0];
+    int l;
+    while (left < right)
     {
-        mid = (left + right) / 2;
-        if (f(R, mid) > r)
-        {
-            right = mid;
-        }else{
-            left = mid;
-        }
+        l = (left + right) / 2;
+        int k = 0;
+
+        for (int i = 0; i < N; i++)
+            k += Len[i] / l;
+
+        if (k >= K)
+            left = l + 1;
+        else
+            right = l;
     }
-    return mid;
+    return left - 1;
 }
 
 int main()
 {
-    double R, r;
-    scanf("%lf%lf", &R, &r);
-    printf("%.4f", solve(R, r));
+    int N;
+    scanf("%d", &N);
+    int Lengths[N];
+    for (int i = 0; i < N; i++)
+        scanf("%d", &Lengths[i]);
+    sort(Lengths, Lengths + N);
+    int K;
+    scanf("%d", &K);
+    printf("%d\n", solve(N, Lengths, K));
     return 0;
 }
-
-
-// 4.5.3 快速幂
