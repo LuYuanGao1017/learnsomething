@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-16 14:49:34
+ * @LastEditTime: 2023-08-16 15:21:19
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -77,7 +77,28 @@ double f(double R, double h)
     return S1 / S2;
 }
 
-int main(){
-    printf("%lf", PI);
+double solve(double R, double r){
+    double left = 0, right = R, mid;
+    while (left < right)
+    {
+        mid = (left + right) / 2;
+        if (f(R, mid) > r)
+        {
+            right = mid;
+        }else{
+            left = mid;
+        }
+    }
+    return mid;
+}
+
+int main()
+{
+    double R, r;
+    scanf("%lf%lf", &R, &r);
+    printf("%.4f", solve(R, r));
     return 0;
 }
+
+
+// 4.5.3 快速幂
