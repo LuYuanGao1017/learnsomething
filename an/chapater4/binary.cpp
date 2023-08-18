@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 15:27:11
+ * @LastEditTime: 2023-08-18 15:46:18
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -303,7 +303,7 @@
 // 4.6.3 快速排序
 // 序列元素比较随机时效率最高O(nlogn)比较有序时O(n^2)
 // 原因是主元的选择 不能将当前区间分为两个长度接近的子区间
-// 解决方法 随机选择主元 
+// 解决方法 随机选择主元
 int Partition(int A[], int left, int right)
 {
     int temp = A[left];
@@ -335,15 +335,40 @@ void quickSort(int A[], int left, int right)
 // #include <stdlib.h>
 // #include <time.h>
 // main函数种第一行这个srand((unsigned)time(NULL));
+// rand()只能生成[0, RAND_MAX]范围内的整数 RAND_MAX是stdlib.h中一个常数 不同系统不一样
+
+
+// #include <stdlib.h>
+// #include <time.h>
+
+// int main(){
+//     srand((unsigned)time(NULL));
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d ", rand());
+//     }
+//     return 0;
+// }
+
+// 如何生成指定区间随机数
+// rand()%(b - a + 1) + a 区间[a, b]
+// rand()%(b - a + 1) 区间 [0, b - a]
 
 #include <stdlib.h>
 #include <time.h>
 
-int main(){
+int main()
+{
     srand((unsigned)time(NULL));
     for (int i = 0; i < 10; i++)
-    {
-        printf("%d ", rand());
-    }
+        printf("%d ", rand() % 2); // [0 , 1]
+    printf("\n");
+    for (int i = 0; i < 10; i++)
+        printf("%d ", rand() % 5 + 3); // [3, 7]
     return 0;
 }
+
+// 如果需要生成更大的超过RAND_MAX的怎办？
+
+
+// 随机快排
