@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 09:46:14
+ * @LastEditTime: 2023-08-18 10:01:34
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -175,34 +175,82 @@
 
 // 4.6 two pointers
 // 4.6.1 什么是two pointers
-// 编程思想
+// 一种编程思想
 
 // 给定一个递增的正数序列和一个正整数 M
 // 求序列种两个不同位置的数 a 和 b 使 a + b = M
 // 给出所有满足的 a 和 b的方案
 
-int main()
+// int main()
+// {
+//     int A[6] = {1, 2, 3, 4, 5, 6};
+//     int M;
+//     scanf("%d", &M);
+//     int i = 0, j = 5;
+//     while (i < j)
+//     {
+//         if (A[i] + A[j] == M)
+//         {
+//             printf("A[%d] = %d \tA[%d] =  %d\n", i, A[i], j, A[j]);
+//             i++;
+//             j--;
+//         }
+//         else if (A[i] + A[j] < M)
+//         {
+//             i++;
+//         }
+//         else
+//         {
+//             j--;
+//         }
+//     }
+//     return 0;
+// }
+
+// 序列合并问题
+// 两个递增序列 A 与 B 合并为一个递增序列 C
+
+int* merge(int A[], int B[], int n, int m)
 {
-    int A[6] = {1, 2, 3, 4, 5, 6};
-    int M;
-    scanf("%d", &M);
-    int i = 0, j = 5;
-    while (i < j)
+    int *C = (int *)malloc((n + m) * sizeof(int));
+    if (C == NULL)
     {
-        if (A[i] + A[j] == M)
-        {
-            printf("A[%d] = %d \tA[%d] =  %d\n", i, A[i], j, A[j]);
-            i++;
-            j--;
-        }
-        else if (A[i] + A[j] < M)
-        {
-            i++;
-        }
-        else
-        {
-            j--;
-        }
+        printf("Memory allocation failed\n");
+        return NULL;
     }
+    int i = 0, j = 0, k = 0;
+    while (i < n && j < m)
+    {
+        if (A[i] < B[j])
+            C[k++] = A[i++];
+        else
+            C[k++] = B[j++];
+    }
+
+    while (i < n)
+        C[k++] = A[i++];
+    while (j < m)
+        C[k++] = B[j++];
+
+    return C;
+}
+
+int main() {
+    int A[] = {1, 3, 5, 7, 9};
+    int B[] = {2, 4, 6, 8, 10};
+    int n = sizeof(A) / sizeof(A[0]);
+    int m = sizeof(B) / sizeof(B[0]);
+
+    int* C = merge(A, B, n, m);
+
+    printf("Merged Array C: ");
+    for (int i = 0; i < n + m; i++) {
+        printf("%d ", C[i]);
+    }
+
+    free(C); // Remember to free the dynamically allocated memory
+
     return 0;
 }
+
+// 4.6.2 归并排序
