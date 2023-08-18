@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 15:48:44
+ * @LastEditTime: 2023-08-18 16:03:24
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -337,7 +337,6 @@ void quickSort(int A[], int left, int right)
 // main函数种第一行这个srand((unsigned)time(NULL));
 // rand()只能生成[0, RAND_MAX]范围内的整数 RAND_MAX是stdlib.h中一个常数 不同系统不一样
 
-
 // #include <stdlib.h>
 // #include <time.h>
 
@@ -370,18 +369,41 @@ void quickSort(int A[], int left, int right)
 
 // 如果需要生成更大的超过RAND_MAX的怎办？
 
-#include <stdlib.h>
-#include <time.h>
+// #include <stdlib.h>
+// #include <time.h>
 
-int main(){
-    srand((unsigned)time(NULL));
-    for (int i = 0; i < 10; i++)
-    {
-        printf("%d ", (int)(round(1.0*rand() / RAND_MAX*50000 + 10000)));
-    }
-    return 0;
-}
-
-
+// int main(){
+//     srand((unsigned)time(NULL));
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d ", (int)(round(1.0*rand() / RAND_MAX*50000 + 10000)));
+//     }
+//     return 0;
+// }
 
 // 随机快排
+
+void swap(int A[], int p, int l)
+{
+    int temp = A[p];
+    A[p] = A[l];
+    A[l] = temp;
+}
+
+int randPartition(int A[], int left, int right)
+{
+    int p = round(1.0 * rand() / RAND_MAX * (right - left) + left);
+    swap(A, p, left);
+    int temp = A[left];
+    while (left < right)
+    {
+        while (left < right && A[right] > temp)
+            right--;
+        A[left] = A[right];
+        while (left < right && A[left] <= temp)
+            left++;
+        A[right] = A[left];
+    }
+    A[left] = temp;
+    return left;
+}
