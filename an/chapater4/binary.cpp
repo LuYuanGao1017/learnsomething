@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-16 17:35:56
+ * @LastEditTime: 2023-08-18 09:46:14
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -113,39 +113,96 @@
 // L = (5 + 10) / 2 = 7   1 + 3 + 2 = 6 < 7
 // L = (5 + 7) / 2 = 6  1 + 4 + 2 = 7 = 7
 
-#include <algorithm>
-using namespace std;
+// #include <algorithm>
+// using namespace std;
 
-int solve(int N, int Len[], int K)
-{
-    int left = 0, right = Len[0];
-    int l;
-    while (left < right)
-    {
-        l = (left + right) / 2;
-        int k = 0;
+// int solve(int N, int Len[], int K)
+// {
+//     int left = 0, right = Len[0];
+//     int l;
+//     while (left < right)
+//     {
+//         l = (left + right) / 2;
+//         int k = 0;
 
-        for (int i = 0; i < N; i++)
-            k += Len[i] / l;
+//         for (int i = 0; i < N; i++)
+//             k += Len[i] / l;
 
-        if (k >= K)
-            left = l + 1;
-        else
-            right = l;
-    }
-    return left - 1;
-}
+//         if (k >= K)
+//             left = l + 1;
+//         else
+//             right = l;
+//     }
+//     return left - 1;
+// }
+
+// int main()
+// {
+//     int N;
+//     scanf("%d", &N);
+//     int Lengths[N];
+//     for (int i = 0; i < N; i++)
+//         scanf("%d", &Lengths[i]);
+//     sort(Lengths, Lengths + N);
+//     int K;
+//     scanf("%d", &K);
+//     printf("%d\n", solve(N, Lengths, K));
+//     return 0;
+// }
+
+// 4.5.3 快速幂
+
+// // a^b % m --> (a * a *...a) b次 % m
+
+// typedef long long LL;
+// // 模运算性质 (a * b) % m 等价于 ((a % m) * (b % m)) % m
+
+// LL pow(LL a, LL b, LL m)
+// {
+//     LL ans = 1;
+//     for (int i = 0; i < b; i++)
+//         ans = ans * a % m;
+//     return ans;
+// }
+
+// LL pow(LL a, LL b, LL m)
+// {
+//     LL ans = 1;
+//     for (int i = 0; i < b; i++)
+//         ans = ans * a;
+//     return ans % m;
+// }
+
+// 4.6 two pointers
+// 4.6.1 什么是two pointers
+// 编程思想
+
+// 给定一个递增的正数序列和一个正整数 M
+// 求序列种两个不同位置的数 a 和 b 使 a + b = M
+// 给出所有满足的 a 和 b的方案
 
 int main()
 {
-    int N;
-    scanf("%d", &N);
-    int Lengths[N];
-    for (int i = 0; i < N; i++)
-        scanf("%d", &Lengths[i]);
-    sort(Lengths, Lengths + N);
-    int K;
-    scanf("%d", &K);
-    printf("%d\n", solve(N, Lengths, K));
+    int A[6] = {1, 2, 3, 4, 5, 6};
+    int M;
+    scanf("%d", &M);
+    int i = 0, j = 5;
+    while (i < j)
+    {
+        if (A[i] + A[j] == M)
+        {
+            printf("A[%d] = %d \tA[%d] =  %d\n", i, A[i], j, A[j]);
+            i++;
+            j--;
+        }
+        else if (A[i] + A[j] < M)
+        {
+            i++;
+        }
+        else
+        {
+            j--;
+        }
+    }
     return 0;
 }
