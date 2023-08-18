@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 10:40:24
+ * @LastEditTime: 2023-08-18 15:27:11
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -300,7 +300,50 @@
 //     return 0;
 // }
 
-// 非递归实现
-
-
 // 4.6.3 快速排序
+// 序列元素比较随机时效率最高O(nlogn)比较有序时O(n^2)
+// 原因是主元的选择 不能将当前区间分为两个长度接近的子区间
+// 解决方法 随机选择主元 
+int Partition(int A[], int left, int right)
+{
+    int temp = A[left];
+    while (left < right)
+    {
+        while (left < right && A[right] >= temp)
+            right--;
+        A[left] = A[right];
+        while (left < right && A[left] <= temp)
+            left--;
+        A[right] = A[left];
+    }
+    A[left] = temp;
+    return left;
+}
+
+void quickSort(int A[], int left, int right)
+{
+    if (left < right)
+    {
+        int pos = Partition(A, left, right);
+        quickSort(A, left, pos - 1);
+        quickSort(A, pos + 1, right);
+    }
+}
+
+// 如何生成随机数
+
+// #include <stdlib.h>
+// #include <time.h>
+// main函数种第一行这个srand((unsigned)time(NULL));
+
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d ", rand());
+    }
+    return 0;
+}
