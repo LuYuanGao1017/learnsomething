@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-16 13:40:30
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 10:01:34
+ * @LastEditTime: 2023-08-18 10:35:38
  * @Description: 基于有序序列的二分查找
  * @FilePath: \learnsomething\an\chapater4\binary.cpp
  */
@@ -210,47 +210,92 @@
 // 序列合并问题
 // 两个递增序列 A 与 B 合并为一个递增序列 C
 
-int* merge(int A[], int B[], int n, int m)
+// int* merge(int A[], int B[], int n, int m)
+// {
+//     int *C = (int *)malloc((n + m) * sizeof(int));
+//     if (C == NULL)
+//     {
+//         printf("Memory allocation failed\n");
+//         return NULL;
+//     }
+//     int i = 0, j = 0, k = 0;
+//     while (i < n && j < m)
+//     {
+//         if (A[i] < B[j])
+//             C[k++] = A[i++];
+//         else
+//             C[k++] = B[j++];
+//     }
+
+//     while (i < n)
+//         C[k++] = A[i++];
+//     while (j < m)
+//         C[k++] = B[j++];
+
+//     return C;
+// }
+
+// int main() {
+//     int A[] = {1, 3, 5, 7, 9};
+//     int B[] = {2, 4, 6, 8, 10};
+//     int n = sizeof(A) / sizeof(A[0]);
+//     int m = sizeof(B) / sizeof(B[0]);
+
+//     int* C = merge(A, B, n, m);
+
+//     printf("Merged Array C: ");
+//     for (int i = 0; i < n + m; i++) {
+//         printf("%d ", C[i]);
+//     }
+
+//     free(C); // Remember to free the dynamically allocated memory
+
+//     return 0;
+// }
+
+// 4.6.2 归并排序
+const int maxn = 100;
+void merge(int A[], int L1, int R1, int L2, int R2)
 {
-    int *C = (int *)malloc((n + m) * sizeof(int));
-    if (C == NULL)
+    int i = L1, j = L2;
+    int temp[maxn], index = 0;
+    while (i <= R1 && j <= R2)
     {
-        printf("Memory allocation failed\n");
-        return NULL;
-    }
-    int i = 0, j = 0, k = 0;
-    while (i < n && j < m)
-    {
-        if (A[i] < B[j])
-            C[k++] = A[i++];
+        if (A[i] < A[j])
+            temp[index++] = A[i++];
         else
-            C[k++] = B[j++];
+            temp[index++] = A[j++];
     }
-
-    while (i < n)
-        C[k++] = A[i++];
-    while (j < m)
-        C[k++] = B[j++];
-
-    return C;
+    while (i <= R1)
+        temp[index++] = A[i++];
+    while (j <= R2)
+        temp[index++] = A[j++];
+    for (int i = 0; i < index; i++)
+    {
+        A[L1 + i] = temp[i];
+    }
 }
 
-int main() {
-    int A[] = {1, 3, 5, 7, 9};
-    int B[] = {2, 4, 6, 8, 10};
-    int n = sizeof(A) / sizeof(A[0]);
-    int m = sizeof(B) / sizeof(B[0]);
-
-    int* C = merge(A, B, n, m);
-
-    printf("Merged Array C: ");
-    for (int i = 0; i < n + m; i++) {
-        printf("%d ", C[i]);
+void mergeSort(int A[], int left, int right)
+{
+    if (left < right)
+    {
+        int mid = (left + right) / 2;
+        mergeSort(A, left, mid);
+        mergeSort(A, mid + 1, right);
+        merge(A, left, mid, mid + 1, right);
     }
+}
 
-    free(C); // Remember to free the dynamically allocated memory
+int main()
+{
+    int A[7] = {66, 12, 33, 51, 64, 27, 18};
+    mergeSort(A, 0, 6);
+    for (int i = 0; i < sizeof(A) / sizeof(A[0]); i++)
+    {
+        printf("%d ", A[i]);
+    }
 
     return 0;
 }
-
-// 4.6.2 归并排序
+// 4.6.3 快速排序
