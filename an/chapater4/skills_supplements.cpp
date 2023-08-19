@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-18 16:05:41
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-19 08:59:06
+ * @LastEditTime: 2023-08-19 11:12:05
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\skills_supplements.cpp
  */
@@ -53,10 +53,65 @@
 // 随机选择算法
 // 找出无序数组中第K个大的数
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <time.h>
+// #include <math.h>
+
+// void swap(int A[], int p, int l)
+// {
+//     int temp = A[p];
+//     A[p] = A[l];
+//     A[l] = temp;
+// }
+
+// int randPartition(int A[], int left, int right)
+// {
+//     int p = round(1.0 * rand() / RAND_MAX * (right - left) + left);
+//     swap(A, p, left);
+//     int temp = A[left];
+//     while (left < right)
+//     {
+//         while (left < right && A[right] > temp)
+//             right--;
+//         A[left] = A[right];
+//         while (left < right && A[left] <= temp)
+//             left++;
+//         A[right] = A[left];
+//     }
+//     A[left] = temp;
+//     return left;
+// }
+
+// int randSelect(int A[], int left, int right, int K)
+// {
+//     if (left == right)
+//         return A[left];
+//     int p = randPartition(A, left, right);
+//     int M = p - left + 1;
+//     if (K == M)
+//         return A[p];
+//     if (K < M)
+//         return randSelect(A, left, p - 1, K);
+//     else
+//         return randSelect(A, p + 1, right, K - M);
+// }
+
+// int main()
+// {
+//     int A[6] = {5, 12, 7, 2, 9, 3};
+//     for (int i = 0; i < 6; i++)
+//         printf("%d ", A[i]);
+//     printf("\n3 th big number %d", randSelect(A, 0, 5, 3));
+//     return 0;
+// }
+
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+#include <ctime>
 #include <math.h>
+using namespace std;
 
 void swap(int A[], int p, int l)
 {
@@ -83,25 +138,37 @@ int randPartition(int A[], int left, int right)
     return left;
 }
 
-int randSelect(int A[], int left, int right, int K)
+void randSelect(int A[], int left, int right, int K)
 {
     if (left == right)
-        return A[left];
+        return ;
     int p = randPartition(A, left, right);
     int M = p - left + 1;
     if (K == M)
-        return A[p];
+        return ;
     if (K < M)
-        return randSelect(A, left, p - 1, K);
+        randSelect(A, left, p - 1, K);
     else
-        return randSelect(A, p + 1, right, K - M);
+        randSelect(A, p + 1, right, K - M);
 }
 
 int main()
 {
-    int A[6] = {5, 12, 7, 2, 9, 3};
-    for (int i = 0; i < 6; i++)
-        printf("%d ", A[i]);
-    printf("\n3 th big number %d", randSelect(A, 0, 5, 3));
+    int n;
+    srand((unsigned)time(NULL));
+    int sum = 0, sum1 = 0;
+    scanf("%d", &n);
+    int A[n] = {0};
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &A[i]);
+        sum += A[i];
+    }
+    randSelect(A, 0, n - 1, n / 2);
+
+    for (int i = 0; i < n / 2; i++)
+        sum1 += A[i];
+
+    printf("%d\n", (sum - sum1) - sum1);
     return 0;
 }
