@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-18 16:05:41
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-19 11:12:05
+ * @LastEditTime: 2023-08-19 15:22:16
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\skills_supplements.cpp
  */
@@ -165,7 +165,6 @@ int main()
         sum += A[i];
     }
     randSelect(A, 0, n - 1, n / 2);
-
     for (int i = 0; i < n / 2; i++)
         sum1 += A[i];
 
