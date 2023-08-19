@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-18 16:05:41
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-18 21:50:02
+ * @LastEditTime: 2023-08-19 08:59:06
  * @Description:
  * @FilePath: \learnsomething\an\chapater4\skills_supplements.cpp
  */
@@ -51,6 +51,8 @@
 
 // 4.7.3
 // 随机选择算法
+// 找出无序数组中第K个大的数
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -87,11 +89,19 @@ int randSelect(int A[], int left, int right, int K)
         return A[left];
     int p = randPartition(A, left, right);
     int M = p - left + 1;
-    if (K == M) return A[p];
+    if (K == M)
+        return A[p];
     if (K < M)
         return randSelect(A, left, p - 1, K);
     else
         return randSelect(A, p + 1, right, K - M);
-    
-    
+}
+
+int main()
+{
+    int A[6] = {5, 12, 7, 2, 9, 3};
+    for (int i = 0; i < 6; i++)
+        printf("%d ", A[i]);
+    printf("\n3 th big number %d", randSelect(A, 0, 5, 3));
+    return 0;
 }
