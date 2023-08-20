@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-20 15:21:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-20 17:23:41
+ * @LastEditTime: 2023-08-20 18:25:04
  * @Description:
  * @FilePath: \learnsomething\an\chapater5\prime_number.cpp
  */
@@ -69,17 +69,48 @@
 // 上面的算法在 n < 10^5 是可以承受的 如果出现需要更大范围的素数表
 // 则使用 埃氏筛法 欧拉筛法能达到 O(n)
 // O(nlog log n)
-const int maxn = 101;
-int prime[maxn], pNum;
-bool p[maxn] = {0};
 
-void find_prime()
+// const int maxn = 101;
+// int prime[maxn], pNum;
+// bool p[maxn] = {0};
+
+// void find_prime()
+// {
+//     for (int i = 2; i < maxn; i++)
+//     {
+//         if (p[i] == false)
+//         {
+//             prime[pNum++] = i;
+//             for (int j = i + i; j < maxn; j += i)
+//             {
+//                 p[j] = true;
+//             }
+//         }
+//     }
+// }
+
+// int main()
+// {
+//     find_prime();
+//     for (int i = 0; i < pNum; i++)
+//     {
+//         printf("%d ", prime[i]);
+//     }
+// }
+
+// PAT B1013 数素数
+const int maxn = 1000001;
+int prime[maxn], num = 0;
+bool p[maxn] = {0};
+void find_prime(int n)
 {
     for (int i = 2; i < maxn; i++)
     {
         if (p[i] == false)
         {
-            prime[pNum++] = i;
+            prime[num++] = i;
+            if (num >= n)
+                break;
             for (int j = i + i; j < maxn; j += i)
             {
                 p[j] = true;
@@ -87,14 +118,20 @@ void find_prime()
         }
     }
 }
-
 int main()
 {
-    find_prime();
-    for (int i = 0; i < pNum; i++)
+    int M, N, count = 0;
+    scanf("%d%d", &M, &N);
+    find_prime(N);
+    for (int i = M; i <= N; i++)
     {
-        printf("%d ", prime[i]);
+        printf("%d", prime[i - 1]);
+        count++;
+        if (count % 10 != 0 && i < N)
+            printf(" ");
+        else
+            printf("\n");
     }
-}
 
-// PAT B1013 数素数
+    return 0;
+}
