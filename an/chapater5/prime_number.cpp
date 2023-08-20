@@ -39,3 +39,12 @@ void find_prime()
 }
 
 // 求解100以内所有素数
+
+int main()
+{
+    find_prime();
+    for (int i = 0; i < pNum; i++)
+    {
+        printf("%d", prime[i]);
+    }
+}
