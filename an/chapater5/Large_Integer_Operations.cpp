@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 13:48:51
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-21 14:22:31
+ * @LastEditTime: 2023-08-21 14:50:37
  * @Description: 大整数 又称为 高精度整数 用基本数据类型无法存储其精度的整数
  * @FilePath: \learnsomething\an\chapater5\Large_Integer_Operations.cpp
  */
@@ -52,3 +52,58 @@ int compare(bign a, bign b)
     return 0;
 }
 // 5.6.2 大整数四则运算
+
+// 1.高精度加法
+
+bign add(bign a, bign b)
+{
+    bign c;
+    int carry = 0;
+    for (int i = 0; i < a.len || i < b.len; i++)
+    {
+        int temp = a.d[i] + b.d[i] + carry;
+        c.d[c.len++] = temp % 10;
+        carry = temp / 10;
+    }
+    if (carry != 0)
+        c.d[c.len++] = carry;
+    return c;
+}
+
+void print(bign a)
+{
+    for (int i = a.len - 1; i >= 0; i--)
+        printf("%d", a.d[i]);
+}
+
+int main()
+{
+    char str1[1000], str2[1000];
+    scanf("%s%s", str1, str2);
+    bign a = change(str1);
+    bign b = change(str2);
+    print(add(a, b));
+    return 0;
+}
+
+// 2.高精度减法
+bign sub(bign a, bign b)
+{
+    bign c;
+    for (int i = 0; i < a.len || i < b.len; i++)
+    {
+        if (a.d[i] < b.d[i])
+        {
+            a.d[i + 1]--;
+            a.d[i] += 10;
+        }
+        c.d[c.len++] = a.d[i] - b.d[i];
+    }
+    // 去除高位的 0 同时至少保留一位最低位
+    while (c.len - 1 >= 1 && c.d[c.len - 1] == 0)
+        c.len--;
+    return c;
+}
+// 3.高精度乘法
+
+// 4.高精度除法
