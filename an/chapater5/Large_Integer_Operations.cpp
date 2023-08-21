@@ -76,15 +76,15 @@ void print(bign a)
         printf("%d", a.d[i]);
 }
 
-int main()
-{
-    char str1[1000], str2[1000];
-    scanf("%s%s", str1, str2);
-    bign a = change(str1);
-    bign b = change(str2);
-    print(add(a, b));
-    return 0;
-}
+// int main()
+// {
+//     char str1[1000], str2[1000];
+//     scanf("%s%s", str1, str2);
+//     bign a = change(str1);
+//     bign b = change(str2);
+//     print(add(a, b));
+//     return 0;
+// }
 
 // 2.高精度减法
 bign sub(bign a, bign b)
@@ -103,6 +103,16 @@ bign sub(bign a, bign b)
     while (c.len - 1 >= 1 && c.d[c.len - 1] == 0)
         c.len--;
     return c;
+}
+
+int main()
+{
+    char str1[1000], str2[1000];
+    scanf("%s%s", str1, str2);
+    bign a = change(str1);
+    bign b = change(str2);
+    print(sub(a, b));
+    return 0;
 }
 // 3.高精度乘法
 
