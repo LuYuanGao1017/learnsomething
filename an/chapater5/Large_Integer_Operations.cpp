@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 13:48:51
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-21 14:51:56
+ * @LastEditTime: 2023-08-21 15:04:28
  * @Description: 大整数 又称为 高精度整数 用基本数据类型无法存储其精度的整数
  * @FilePath: \learnsomething\an\chapater5\Large_Integer_Operations.cpp
  */
@@ -147,3 +147,34 @@ bign multi(bign a, int b)
 // }
 
 // 4.高精度除法
+
+bign divide(bign a, int b, int &r)
+{
+    bign c;
+    c.len = a.len;
+    for (int i = a.len - 1; i >= 0; i--)
+    {
+        r = r * 10 + a.d[i];
+        if (r < b)
+            c.d[i] = 0;
+        else
+        {
+            c.d[i] = r / b;
+            r = r % b;
+        }
+    }
+    while (c.len - 1 >= 1 && c.d[c.len - 1] == 0)
+        c.len--;
+    return c;
+}
+
+int main()
+{
+    char str1[1000];
+    scanf("%s", str1);
+    int b, r = 0;
+    scanf("%d", &b);
+    bign a = change(str1);
+    print(divide(a, b, r));
+    return 0;
+}
