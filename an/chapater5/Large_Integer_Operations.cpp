@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 13:48:51
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-21 14:50:37
+ * @LastEditTime: 2023-08-21 14:51:56
  * @Description: 大整数 又称为 高精度整数 用基本数据类型无法存储其精度的整数
  * @FilePath: \learnsomething\an\chapater5\Large_Integer_Operations.cpp
  */
@@ -105,15 +105,45 @@ bign sub(bign a, bign b)
     return c;
 }
 
-int main()
-{
-    char str1[1000], str2[1000];
-    scanf("%s%s", str1, str2);
-    bign a = change(str1);
-    bign b = change(str2);
-    print(sub(a, b));
-    return 0;
-}
+// int main()
+// {
+//     char str1[1000], str2[1000];
+//     scanf("%s%s", str1, str2);
+//     bign a = change(str1);
+//     bign b = change(str2);
+//     print(sub(a, b));
+//     return 0;
+// }
+
 // 3.高精度乘法
+
+bign multi(bign a, int b)
+{
+    bign c;
+    int carry = 0;
+    for (int i = 0; i < a.len; i++)
+    {
+        int temp = a.d[i] * b + carry;
+        c.d[c.len++] = temp % 10;
+        carry = temp / 10;
+    }
+    while (carry != 0)
+    {
+        c.d[c.len++] = carry % 10;
+        carry /= 10;
+    }
+    return c;
+}
+
+// int main()
+// {
+//     char str1[1000];
+//     scanf("%s", str1);
+//     int b;
+//     scanf("%d", &b);
+//     bign a = change(str1);
+//     print(multi(a, b));
+//     return 0;
+// }
 
 // 4.高精度除法
