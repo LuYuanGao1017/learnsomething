@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:23:44
+ * @LastEditTime: 2023-08-25 18:35:24
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -104,16 +104,42 @@ using namespace std;
 // }
 
 // <2 insert(it, it2, it3) [it2, it3)插入在it位置上
+
+// int main()
+// {
+//     string str = "abcxyz", str2 = "opq";
+//     str.insert(str.begin() + 3, str2.begin(), str2.end());
+//     cout << str << endl;
+//     return 0;
+// }
+
+// (5) erase()删除元素
+
+// <1 单个元素
+// int main()
+// {
+//     string str = "abcdefg";
+//     str.erase(str.begin() + 4);
+//     cout << str << endl;
+//     return 0;
+// }
+
+// <2 区间元素
+
 int main(){
-    string str = "abcxyz", str2 = "opq";
-    str.insert(str.begin() + 3, str2.begin(), str2.end());
-    cout<<str<<endl;
+    string str = "abcdefg";
+    str.erase(str.begin() + 2, str.end() - 1);
+    cout << str << endl;
     return 0;
 }
-// (5)
-// (6)
-// (7)
-// (8)
-// (9)
-// (10)
-//
+// (6) clear()
+
+// (7) substr()
+
+// (8) string::npos
+
+// (9) find()
+
+// (10) replace()
+
+// PAT A1060
