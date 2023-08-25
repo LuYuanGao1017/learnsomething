@@ -99,16 +99,26 @@ using namespace std;
 // (4) size()
 // 获取元素个数 时间复杂度为O(1)
 
+// int main(){
+//     set<int> st;
+//     st.insert(2);
+//     st.insert(5);
+//     st.insert(4);
+//     printf("%d\n", st.size());
+//     return 0;
+// }
+
+// (5) clear() O(N) N为set内元素个数
+
 int main(){
     set<int> st;
     st.insert(2);
     st.insert(5);
     st.insert(4);
+    st.clear();
     printf("%d\n", st.size());
     return 0;
 }
-
-// (5) clear() O(N)
 
 // 4.set常见用途
 // 自动去重并按升序排序
