@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 20:42:23
+ * @LastEditTime: 2023-08-25 22:28:24
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -211,16 +211,81 @@ using namespace std;
 // }
 
 // (10) replace()
-int main()
-{
-    string str = "Maybe you will turn around.";
-    string str2 = "will not";
-    string str3 = "surely";
-    // str.replace(pos, len, str2) 把str 从pos号开始、长度为len的子串替换成str2
-    cout << str.replace(10, 4, str2) << endl;
-    // str.replace(it1, it2, str2) 把str的迭代器[it1, it2)范围的子串替换为str2
-    cout << str.replace(str.begin(), str.begin() + 5, str3) << endl;
-    return 0;
-}
+// int main()
+// {
+//     string str = "Maybe you will turn around.";
+//     string str2 = "will not";
+//     string str3 = "surely";
+//     // str.replace(pos, len, str2) 把str 从pos号开始、长度为len的子串替换成str2
+//     cout << str.replace(10, 4, str2) << endl;
+//     // str.replace(it1, it2, str2) 把str的迭代器[it1, it2)范围的子串替换为str2
+//     cout << str.replace(str.begin(), str.begin() + 5, str3) << endl;
+//     return 0;
+// }
 
 // PAT A1060
+
+int n;
+string deal(string s, int &e)
+{
+    int k = 0; // s下标
+    while (s.length() > 0 && s[0] == '0')
+    {
+        s.erase(s.begin());
+    }
+    if (s[0] == '.') // 小数
+    {
+        s.erase(s.begin());
+        while (s.length() > 0 && s[0] == '0')
+        {
+            s.erase(s.begin());
+            e--;
+        }
+    }
+    else
+    { // 整数
+        while (k < s.length() && s[k] != '.')
+        {
+            k++;
+            e++;
+        }
+        if (k < s.length())
+        {
+            s.erase(s.begin() + k); // 删除小数点
+        }
+    }
+    if (s.length() == 0)
+    {
+        e = 0;
+    }
+    int num = 0;
+    k = 0;
+    string res;
+    while (num < n)
+    {
+        if (k < s.length())
+            res += s[k++];
+        else
+            res += '0';
+        num++;
+    }
+    return res;
+}
+
+int main()
+{
+    string s1, s2, s3, s4;
+    cin >> n >> s1 >> s2;
+    int e1 = 0, e2 = 0;
+    s3 = deal(s1, e1);
+    s4 = deal(s2, e2);
+    if (s3 == s4 && e1 == e2)
+    {
+        cout << "YES 0." << s3 << "*10^" << e1 << endl;
+    }
+    else
+    {
+        cout << "NO 0." << s3 << "*10^" << e1 << " 0." << s4 << "*10^" << e2 << endl;
+    }
+    return 0;
+}
