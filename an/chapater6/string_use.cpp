@@ -94,15 +94,22 @@ using namespace std;
 // (4) insert()
 // string的insert函数有很多种写法
 // <1 insert(pos, string) pos号位置插入字符串
-int main()
-{
+
+// int main()
+// {
+//     string str = "abcxyz", str2 = "opq";
+//     str.insert(3, str2);
+//     cout << str << endl;
+//     return 0;
+// }
+
+// <2 insert(it, it2, it3) [it2, it3)插入在it位置上
+int main(){
     string str = "abcxyz", str2 = "opq";
-    str.insert(3, str2);
-    cout << str << endl;
+    str.insert(str.begin() + 3, str2.begin(), str2.end());
+    cout<<str<<endl;
     return 0;
 }
-// <2 insert(it, it2, it3) [it2, it3)插入在it位置上
-
 // (5)
 // (6)
 // (7)
