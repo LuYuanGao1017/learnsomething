@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:25
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 16:11:52
+ * @LastEditTime: 2023-08-25 16:23:13
  * @Description:
  * set集合
  * 内部自动有序 不含重复元素的容器
@@ -35,6 +35,9 @@ int main()
 }
 
 // 3.set常用函数实例解析
+// (1) insert() 自动递增排序并去重
+// (2) find(value) 返回set中对应值为value的迭代器 O(logN) N为set内元素个数
+
 
 // 4.set常见用途
 // 自动去重并按升序排序
