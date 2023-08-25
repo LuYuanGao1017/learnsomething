@@ -25,7 +25,7 @@ using namespace std;
 //     return 0;
 // }
 
-// 如果要读入和读出整个字符串 
+// 如果要读入和读出整个字符串
 // 只能用 cin cout
 
 #include <iostream>
@@ -42,6 +42,18 @@ int main()
 }
 
 // (2) 迭代器访问
+
+// 有些函数需要迭代器为参数
+
+// string::iterator it;
+
+int main()
+{
+    string str = "abcd";
+    for (string::iterator it = str.begin(); it != str.end(); it++)
+        printf("%c", *it);
+    return 0;
+}
 
 // 3.string 常用函数实例解析
 
