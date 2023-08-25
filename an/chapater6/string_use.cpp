@@ -156,14 +156,14 @@ using namespace std;
 
 // substr(pos, len) 返回从pos号开始长度为len的子串 O(len)
 
-int main()
-{
-    string str = "Thank you for your simle.";
-    cout << str.substr(0, 5) << endl;
-    cout << str.substr(14, 4) << endl;
-    cout << str.substr(19, 5) << endl;
-    return 0;
-}
+// int main()
+// {
+//     string str = "Thank you for your simle.";
+//     cout << str.substr(0, 5) << endl;
+//     cout << str.substr(14, 4) << endl;
+//     cout << str.substr(19, 5) << endl;
+//     return 0;
+// }
 
 // (8) string::npos
 // 一个常数 本身的值为-1 unsigned_int类型
