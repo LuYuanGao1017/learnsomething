@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 20:32:47
+ * @LastEditTime: 2023-08-25 20:42:23
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -184,31 +184,43 @@ using namespace std;
 // (9) find()
 // str.find(str2) str2是str子串时 返回第一次出现的位置
 // str.find(str2, pos) 从str的pos号位开始匹配str2
-int main()
-{
-    string str = "Thank you for your smile.";
-    string str2 = "you";
-    string str3 = "me";
-    if (str.find(str2) != string::npos)
-    {
-        cout << str.find(str2) << endl;
-    }
-    if (str.find(str2, 7) != string::npos)
-    {
-        cout << str.find(str2, 7) << endl;
-    }
-    if (str.find(str3) != string::npos)
-    {
-        cout << str.find(str3) << endl;
-    }
-    else
-    {
-        cout << "I knoe there is no position for me." << endl;
-    }
 
-    return 0;
-}
+// int main()
+// {
+//     string str = "Thank you for your smile.";
+//     string str2 = "you";
+//     string str3 = "me";
+//     if (str.find(str2) != string::npos)
+//     {
+//         cout << str.find(str2) << endl;
+//     }
+//     if (str.find(str2, 7) != string::npos)
+//     {
+//         cout << str.find(str2, 7) << endl;
+//     }
+//     if (str.find(str3) != string::npos)
+//     {
+//         cout << str.find(str3) << endl;
+//     }
+//     else
+//     {
+//         cout << "I knoe there is no position for me." << endl;
+//     }
+
+//     return 0;
+// }
 
 // (10) replace()
+// str.replace(pos, len, str2) 把str 从pos号开始、长度为len的子串替换成str2
+int main()
+{
+    string str = "Maybe you will turn around.";
+    string str2 = "will not";
+    string str3 = "surely";
+    cout << str.replace(10, 4, str2) << endl;
+    cout << str.replace(str.begin(), str.begin() + 5, str3) << endl;
+    return 0;
+}
+// str.replace(it1, it2, str2) 把str的迭代器[it1, it2)范围的子串替换为str2
 
 // PAT A1060
