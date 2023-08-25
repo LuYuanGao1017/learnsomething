@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:35:24
+ * @LastEditTime: 2023-08-25 18:39:20
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -135,13 +135,22 @@ using namespace std;
 // }
 
 // erase(pos, length)
+// int main(){
+//     string str = "abcdefg";
+//     str.erase(3, 2);
+//     cout << str << endl;
+//     return 0;
+// }
+
+// (6) clear() 清空string中的数据 O(1)
+
 int main(){
-    string str = "abcdefg";
-    str.erase(3, 2);
-    cout << str << endl;
+    string str = "abcd";
+    printf("str length %d\n", str.length());
+    str.clear();
+    printf("After str.clear()\nstr Length %d\n", str.length());
     return 0;
 }
-// (6) clear()
 
 // (7) substr()
 
