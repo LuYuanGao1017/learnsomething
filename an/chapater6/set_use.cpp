@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:25
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 16:25:38
+ * @LastEditTime: 2023-08-25 16:39:34
  * @Description:
  * set集合
  * 内部自动有序 不含重复元素的容器
@@ -38,16 +38,38 @@ using namespace std;
 // (1) insert() 自动递增排序并去重
 // (2) find(value) 返回set中对应值为value的迭代器 O(logN) N为set内元素个数
 
+// int main()
+// {
+//     set<int> st;
+//     for (int i = 1; i <= 3; i++)
+//         st.insert(i);
+//     set<int>::iterator it = st.find(2);
+//     printf("%d\n", *it);
+//     // printf("%d\n", *(st.find(2)));
+//     return 0;
+// }
+
+// (3) erase() 删除单个元素 一个区间内所有元素
+// (1 删除单个元素有两种方法
+// 结合find()使用
+
 int main()
 {
     set<int> st;
-    for (int i = 1; i <= 3; i++)
-        st.insert(i);
-    set<int>::iterator it = st.find(2);
-    printf("%d\n", *it);
-    // printf("%d\n", *(st.find(2)));
+    st.insert(100);
+    st.insert(200);
+    st.insert(100);
+    st.insert(300);
+    st.erase(st.find(100));
+    st.erase(st.find(200));
+    for (set<int>::iterator it = st.begin(); it != st.end(); it++)
+        printf("%d\n", *it);
     return 0;
 }
+
+// (4) size()
+
+// (5) clear() O(N)
 
 // 4.set常见用途
 // 自动去重并按升序排序
