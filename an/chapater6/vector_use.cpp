@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 21:40:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 09:33:54
+ * @LastEditTime: 2023-08-25 09:35:09
  * @Description: 变长数组 以邻接表的方式存储图
  * @FilePath: \learnsomething\an\chapater6\vector_use.cpp
  */
@@ -132,6 +132,7 @@ using namespace std;
 // }
 
 // 删除一个区间的所有元素
+// earse(first, last) 删除[first, last)所有元素
 int main()
 {
     vector<int> vi;
