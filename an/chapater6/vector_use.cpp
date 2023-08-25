@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 21:40:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-23 14:50:36
+ * @LastEditTime: 2023-08-25 08:42:54
  * @Description: 变长数组 以邻接表的方式存储图
  * @FilePath: \learnsomething\an\chapater6\vector_use.cpp
  */
@@ -54,36 +54,53 @@ using namespace std;
 // (1) push_back()
 // 在vector后面添加一个元素x 时间复杂度O(1)
 
-int main()
-{
-    vector<int> vi;
-    for (int i = 1; i <= 3; i++)
-        vi.push_back(i);
-    for (int i = 0; i < vi.size(); i++)
-        printf("%d ", vi[i]);
-    return 0;
-}
+// int main()
+// {
+//     vector<int> vi;
+//     for (int i = 1; i <= 3; i++)
+//         vi.push_back(i);
+//     for (int i = 0; i < vi.size(); i++)
+//         printf("%d ", vi[i]);
+//     return 0;
+// }
 
 // (2) pop_back()
 // 删除vector的尾元素
 
+// int main()
+// {
+//     vector<int> vi;
+//     for (int i = 1; i <= 3; i++)
+//         vi.push_back(i);
+//     vi.pop_back();
+//     for (int i = 0; i < vi.size(); i++)
+//         printf("%d ", vi[i]);
+//     return 0;
+// }
+
+// (3) size()
+// vector中元素个数
+
+// int main()
+// {
+//     vector<int> vi;
+//     for (int i = 1; i <= 3; i++)
+//         vi.push_back(i);
+//     printf("%d\n", vi.size());
+//     return 0;
+// }
+
+// (4) clear()
+// 清空vector中所有元素
 int main()
 {
     vector<int> vi;
     for (int i = 1; i <= 3; i++)
         vi.push_back(i);
-    vi.pop_back();
-    for (int i = 0; i < vi.size(); i++)
-        printf("%d ", vi[i]);
+    vi.clear();
+    printf("%d\n", vi.size());
     return 0;
 }
-
-// (3) size()
-// vector中元素个数
-
-// (4) clear()
-// 清空vector中所有元素
-
 // (5) insert()
 // 任意迭代器It处插入一个元素 O(N)
 
