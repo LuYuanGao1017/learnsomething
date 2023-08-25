@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:19:36
+ * @LastEditTime: 2023-08-25 18:23:44
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -72,17 +72,31 @@ using namespace std;
 // (2) compare operator
 // == != < <= > >= 字典序
 
+// int main()
+// {
+//     string str1 = "aa", str2 = "aaa", str3 = "abc", str4 = "xyz";
+//     if(str1 < str2) printf("ok1\n");
+//     if(str1 != str3) printf("ok2\n");
+//     if(str4 >= str3) printf("ok3\n");
+//     return 0;
+// }
+
+// (3) length()/size()
+// 返回string的长度
+
 int main()
 {
-    string str1 = "aa", str2 = "aaa", str3 = "abc", str4 = "xyz";
-    if(str1 < str2) printf("ok1\n");
-    if(str1 != str3) printf("ok2\n");
-    if(str4 >= str3) printf("ok3\n");
+    string str = "abcxyz";
+    printf("%d %d\n", str.length(), str.size());
     return 0;
 }
 
-// (3)
-// (4)
+// (4) insert()
+// string的insert函数有很多种写法
+// <1 insert(pos, string) pos号位置插入字符串
+
+// <2 insert(it, it2, it3) [it2, it3)插入在it位置上
+
 // (5)
 // (6)
 // (7)
