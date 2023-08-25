@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-21 21:40:36
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 09:21:32
+ * @LastEditTime: 2023-08-25 09:31:42
  * @Description: 变长数组 以邻接表的方式存储图
  * @FilePath: \learnsomething\an\chapater6\vector_use.cpp
  */
@@ -124,13 +124,23 @@ int main()
     vector<int> vi;
     for (int i = 5; i <= 9; i++)
         vi.push_back(i); // 5 6 7 8 9
-    // vi.begin()对应的是vi[0] 
+    // vi.begin()对应的是vi[0]
     vi.erase(vi.begin() + 3);
     for (int i = 0; i < vi.size(); i++)
         printf("%d ", vi[i]); // 5 6 7 9
     return 0;
 }
 
+int main()
+{
+    vector<int> vi;
+    for (int i = 5; i <= 9; i++)
+        vi.push_back(i);
+    vi.erase(vi.begin() + 1, vi.begin() + 4);
+    for (int i = 0; i < vi.size(); i++)
+        printf("%d ", vi[i]);
+    return 0;
+}
 // 4.vector常见用途
 // (1) 储存数据
 // 本身可以作为数组使用 元素个数不确定的时候
