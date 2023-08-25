@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:25
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 16:59:45
+ * @LastEditTime: 2023-08-25 17:01:45
  * @Description:
  * set集合
  * 内部自动有序 不含重复元素的容器
@@ -82,21 +82,31 @@ using namespace std;
 // }
 
 // <2 删除一个区间内的所有元素
+// O(first - last)
+// int main()
+// {
+//     set<int> st;
+//     st.insert(20);
+//     st.insert(10);
+//     st.insert(40);
+//     st.insert(30);
+//     set<int>::iterator it = st.find(30);
+//     st.erase(it, st.end());// 删除30， 40
+//     for (it = st.begin(); it != st.end(); it++)
+//         printf("%d ", *it);
+//     return 0;
+// }
+// (4) size()
+// 获取元素个数 时间复杂度为O(1)
 
-int main()
-{
+int main(){
     set<int> st;
-    st.insert(20);
-    st.insert(10);
-    st.insert(40);
-    st.insert(30);
-    set<int>::iterator it = st.find(30);
-    st.erase(it, st.end());// 删除30， 40
-    for (it = st.begin(); it != st.end(); it++)
-        printf("%d ", *it);
+    st.insert(2);
+    st.insert(5);
+    st.insert(4);
+    printf("%d\n", st.size());
     return 0;
 }
-// (4) size()
 
 // (5) clear() O(N)
 
