@@ -124,11 +124,20 @@ using namespace std;
 //     return 0;
 // }
 
-// <2 区间元素
+// <2 区间元素 两种方法
 
+// erase(first, last)
+// int main(){
+//     string str = "abcdefg";
+//     str.erase(str.begin() + 2, str.end() - 1);
+//     cout << str << endl;
+//     return 0;
+// }
+
+// erase(pos, length)
 int main(){
     string str = "abcdefg";
-    str.erase(str.begin() + 2, str.end() - 1);
+    str.erase(3, 2);
     cout << str << endl;
     return 0;
 }
