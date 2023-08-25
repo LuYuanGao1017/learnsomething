@@ -211,16 +211,16 @@ using namespace std;
 // }
 
 // (10) replace()
-// str.replace(pos, len, str2) 把str 从pos号开始、长度为len的子串替换成str2
 int main()
 {
     string str = "Maybe you will turn around.";
     string str2 = "will not";
     string str3 = "surely";
+    // str.replace(pos, len, str2) 把str 从pos号开始、长度为len的子串替换成str2
     cout << str.replace(10, 4, str2) << endl;
+    // str.replace(it1, it2, str2) 把str的迭代器[it1, it2)范围的子串替换为str2
     cout << str.replace(str.begin(), str.begin() + 5, str3) << endl;
     return 0;
 }
-// str.replace(it1, it2, str2) 把str的迭代器[it1, it2)范围的子串替换为str2
 
 // PAT A1060
