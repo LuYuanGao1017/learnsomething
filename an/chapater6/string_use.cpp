@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:39:20
+ * @LastEditTime: 2023-08-25 18:41:32
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -144,15 +144,25 @@ using namespace std;
 
 // (6) clear() 清空string中的数据 O(1)
 
-int main(){
-    string str = "abcd";
-    printf("str length %d\n", str.length());
-    str.clear();
-    printf("After str.clear()\nstr Length %d\n", str.length());
-    return 0;
-}
+// int main(){
+//     string str = "abcd";
+//     printf("str length %d\n", str.length());
+//     str.clear();
+//     printf("After str.clear()\nstr Length %d\n", str.length());
+//     return 0;
+// }
 
 // (7) substr()
+
+// substr(pos, len) 返回从pos号开始长度为len的子串 O(len)
+
+int main(){
+    string str = "Thank you for your simle.";
+    cout << str.substr(0, 5) << endl;
+    cout << str.substr(14, 4) << endl;
+    cout << str.substr(19, 5) << endl;
+    return 0;
+}
 
 // (8) string::npos
 
