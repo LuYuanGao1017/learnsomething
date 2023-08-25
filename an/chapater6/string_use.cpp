@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:18:12
+ * @LastEditTime: 2023-08-25 18:19:36
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -56,19 +56,30 @@ using namespace std;
 // }
 
 // 3.string 常用函数实例解析
+
 // (1)operator+= 将两个string拼起来
-int main()
-{
-    string str1 = "abcd", str2 = "xyz", str3;
-    str3 = str1 + str2;
-    str1 += str2;
-    cout << str1 << endl;
-    cout << str3 << endl;
-    return 0;
-}
-// (2) compare operator 
+
+// int main()
+// {
+//     string str1 = "abcd", str2 = "xyz", str3;
+//     str3 = str1 + str2;
+//     str1 += str2;
+//     cout << str1 << endl;
+//     cout << str3 << endl;
+//     return 0;
+// }
+
+// (2) compare operator
 // == != < <= > >= 字典序
 
+int main()
+{
+    string str1 = "aa", str2 = "aaa", str3 = "abc", str4 = "xyz";
+    if(str1 < str2) printf("ok1\n");
+    if(str1 != str3) printf("ok2\n");
+    if(str4 >= str3) printf("ok3\n");
+    return 0;
+}
 
 // (3)
 // (4)
