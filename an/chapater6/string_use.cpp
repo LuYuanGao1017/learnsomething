@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:51:45
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-25 18:41:32
+ * @LastEditTime: 2023-08-25 20:26:40
  * @Description:
  * @FilePath: \learnsomething\an\chapater6\string_use.cpp
  */
@@ -156,7 +156,8 @@ using namespace std;
 
 // substr(pos, len) 返回从pos号开始长度为len的子串 O(len)
 
-int main(){
+int main()
+{
     string str = "Thank you for your simle.";
     cout << str.substr(0, 5) << endl;
     cout << str.substr(14, 4) << endl;
@@ -165,6 +166,20 @@ int main(){
 }
 
 // (8) string::npos
+// 一个常数 本身的值为-1 unsigned_int类型
+// find函数失配时的返回值
+int main()
+{
+    if (string::npos == -1)
+    {
+        cout << "-1 is true." << endl;
+    }
+    if (string::npos == 4294967295)
+    {
+        cout << "4294967295 is also true." << endl;
+    }
+    return 0;
+}
 
 // (9) find()
 
