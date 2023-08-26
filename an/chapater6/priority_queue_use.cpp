@@ -31,16 +31,16 @@ using namespace std;
 // (2) top()
 // (3) pop()
 
-int main(){
-    priority_queue<int> q;
-    q.push(3);
-    q.push(4);
-    q.push(1);
-    printf("%d\n", q.top());
-    q.pop();
-    printf("%d\n", q.top());
-    return 0;
-}
+// int main(){
+//     priority_queue<int> q;
+//     q.push(3);
+//     q.push(4);
+//     q.push(1);
+//     printf("%d\n", q.top());
+//     q.pop();
+//     printf("%d\n", q.top());
+//     return 0;
+// }
 
 // (4) empty()
 
