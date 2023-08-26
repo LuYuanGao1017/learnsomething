@@ -43,3 +43,18 @@ int main(){
 }
 
 // (4) empty()
+
+int main(){
+    priority_queue<int> q;
+    if (q.empty() == true)
+        printf("Priority Queue Empty.\n");
+    else
+        printf("Priority Queue Not Empty.\n");
+    printf("After push(1)\n");
+    q.push(1);
+    if (q.empty() == true)
+        printf("Priority Queue Empty.\n");
+    else
+        printf("Priority Queue Not Empty.\n");   
+    return 0;
+}
