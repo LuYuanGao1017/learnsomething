@@ -42,18 +42,28 @@ using namespace std;
 
 // (4) empty() 检测queue是否为空 返回true则为空 false为非空 O(1)
 
-int main()
-{
+// int main()
+// {
+//     queue<int> q;
+//     if (q.empty())
+//         printf("Queue Empty\n");
+//     else
+//         printf("Queue Not Empty\n");
+//     q.push(1);
+//     printf("After q.push(1)\n");
+//     if (q.empty())
+//         printf("Queue Empty\n");
+//     else
+//         printf("Queue Not Empty\n");
+//     return 0;
+// }
+
+// (5) size() 元素个数 O(1)
+
+int main(){
     queue<int> q;
-    if (q.empty())
-        printf("Queue Empty\n");
-    else
-        printf("Queue Not Empty\n");
-    q.push(1);
-    printf("After q.push(1)\n");
-    if (q.empty())
-        printf("Queue Empty\n");
-    else
-        printf("Queue Not Empty\n");
+    for (int i = 1; i <= 5; i++)
+        q.push(i);
+    printf("%d\n", q.size());
     return 0;
 }
