@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:55:01
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 18:24:36
+ * @LastEditTime: 2023-08-26 18:31:31
  * @Description:
  * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
  * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
@@ -95,23 +95,55 @@ using namespace std;
 
 #include <string>
 #include <iostream>
+// struct fruit
+// {
+//     string name;
+//     int price;
+//     // friend 友元 对fruit类型的操作符 < 进行重载
+//     friend bool operator<(fruit f1, fruit f2)
+//     {
+//         // 价格越高优先级越高
+//         // return f1.price < f2.price;
+//         // 价格越低优先级越低
+//         return f1.price > f2.price;
+//     }
+// } f1, f2, f3;
+
+// int main()
+// {
+//     priority_queue<fruit> q;
+//     f1.name = "Peach";
+//     f1.price = 3;
+//     f2.name = "Pears";
+//     f2.price = 4;
+//     f3.name = "Apple";
+//     f3.price = 1;
+//     q.push(f1);
+//     q.push(f2);
+//     q.push(f3);
+//     cout << q.top().name << " " << q.top().price << endl;
+//     return 0;
+// }
+
+// < 小于号 重载类似 sort中cmp
+
+// 重载写在结构体外的形式
 struct fruit
 {
     string name;
     int price;
-    // friend 友元 对fruit类型的操作符 < 进行重载
-    friend bool operator<(fruit f1, fruit f2)
+} f1, f2, f3;
+struct cmp
+{
+    bool operator()(fruit f1, fruit f2)
     {
-        // 价格越高优先级越高
-        // return f1.price < f2.price;
-        // 价格越低优先级越低
         return f1.price > f2.price;
     }
-} f1, f2, f3;
+};
 
 int main()
 {
-    priority_queue<fruit> q;
+    priority_queue<fruit, vector<fruit>, cmp> q;
     f1.name = "Peach";
     f1.price = 3;
     f2.name = "Pears";
@@ -124,3 +156,8 @@ int main()
     cout << q.top().name << " " << q.top().price << endl;
     return 0;
 }
+
+// 若结构体内数据较为庞大 例如出现 string 或者 array 建议使用引用提高效率
+
+// 5.priority_queue常见用途
+// 贪心问题 Dijkstra算法优化 本质是堆
