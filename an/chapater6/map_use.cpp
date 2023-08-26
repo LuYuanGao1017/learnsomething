@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:54:37
+ * @LastEditTime: 2023-08-26 15:56:02
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
