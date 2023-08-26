@@ -28,13 +28,32 @@ using namespace std;
 // (1) push(x) 将 x 入列 O(1)
 // (2) front() back() 分别获得队首元素和队尾元素 O(1)
 // (3) pop() 队首元素出队 O(1)
+
+// int main()
+// {
+//     queue<int> q;
+//     for (int i = 1; i <= 5; i++)
+//         q.push(i); // 1 2 3 4 5 入队
+//     for (int i = 1; i <= 3; i++)
+//         q.pop(); // 1 2 3 出队
+//     printf("%d\n", q.front());
+//     return 0;
+// }
+
+// (4) empty() 检测queue是否为空 返回true则为空 false为非空 O(1)
+
 int main()
 {
     queue<int> q;
-    for (int i = 1; i <= 5; i++)
-        q.push(i); // 1 2 3 4 5 入队
-    for (int i = 1; i <= 3; i++)
-        q.pop(); // 1 2 3 出队
-    printf("%d\n", q.front());
+    if (q.empty())
+        printf("Queue Empty\n");
+    else
+        printf("Queue Not Empty\n");
+    q.push(1);
+    printf("After q.push(1)\n");
+    if (q.empty())
+        printf("Queue Empty\n");
+    else
+        printf("Queue Not Empty\n");
     return 0;
 }
