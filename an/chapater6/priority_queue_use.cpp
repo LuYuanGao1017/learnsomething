@@ -3,7 +3,7 @@
  * @Date: 2023-08-26 16:55:01
  * @LastEditors: LynnGao
  * @LastEditTime: 2023-08-26 17:41:08
- * @Description: 
+ * @Description:
  * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
  * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
  */
@@ -44,17 +44,30 @@ using namespace std;
 
 // (4) empty()
 
-int main(){
+// int main()
+// {
+//     priority_queue<int> q;
+//     if (q.empty() == true)
+//         printf("Priority Queue Empty.\n");
+//     else
+//         printf("Priority Queue Not Empty.\n");
+//     printf("After push(1)\n");
+//     q.push(1);
+//     if (q.empty() == true)
+//         printf("Priority Queue Empty.\n");
+//     else
+//         printf("Priority Queue Not Empty.\n");
+//     return 0;
+// }
+
+// (5) size()
+
+int main()
+{
     priority_queue<int> q;
-    if (q.empty() == true)
-        printf("Priority Queue Empty.\n");
-    else
-        printf("Priority Queue Not Empty.\n");
-    printf("After push(1)\n");
+    q.push(3);
+    q.push(4);
     q.push(1);
-    if (q.empty() == true)
-        printf("Priority Queue Empty.\n");
-    else
-        printf("Priority Queue Not Empty.\n");   
+    printf("%d\n", q.size());
     return 0;
 }
