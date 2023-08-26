@@ -86,7 +86,7 @@ int main()
     mp['c'] = 3;
     mp.erase('b');
     for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
-        printf("%c %d", it->first, it->second);
+        printf("%c %d\n", it->first, it->second);
     return 0;
 }
 
