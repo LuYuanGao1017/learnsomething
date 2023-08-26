@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:55:01
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 17:52:53
+ * @LastEditTime: 2023-08-26 18:01:19
  * @Description:
  * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
  * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
@@ -81,14 +81,21 @@ using namespace std;
 // 两种定义等价
 // less表示数字大优先级大 greater 表示数字小的优先级小
 
-int main()
-{
-    priority_queue<int, vector<int>, greater<int>> q;
-    q.push(3);
-    q.push(4);
-    q.push(1);
-    printf("%d\n", q.top());
-    return 0;
-}
+// int main()
+// {
+//     priority_queue<int, vector<int>, greater<int>> q;
+//     q.push(3);
+//     q.push(4);
+//     q.push(1);
+//     printf("%d\n", q.top());
+//     return 0;
+// }
 
 // (2) 结构体优先级设置
+
+#include <string>
+struct fruit
+{
+    string name;
+    int price;
+};
