@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:34:51
+ * @LastEditTime: 2023-08-26 15:43:38
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
@@ -105,5 +105,19 @@ int main()
         printf("%c %d\n", it->first, it->second);
     return 0;
 }
+
+// (3) size()
+
+int main()
+{
+    map<char, int> mp;
+    mp['a'] = 10;
+    mp['b'] = 20;
+    mp['c'] = 30;
+    printf("%d\n", mp.size()); // 3对映射
+    return 0;
+}
+
+// (4) clear()
 
 // 4. map常用途径
