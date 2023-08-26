@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:16:41
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 16:27:50
+ * @LastEditTime: 2023-08-26 16:40:43
  * @Description:
  * 先进先出 队列
  * @FilePath: \learnsomething\an\chapater6\queue_use.cpp
@@ -64,6 +64,11 @@ int main(){
     queue<int> q;
     for (int i = 1; i <= 5; i++)
         q.push(i);
-    printf("%d\n", q.size());
+    printf("q.size() = %d\n", q.size());
     return 0;
 }
+
+// 4.queue常见用途
+
+// 广度优先搜索时
+// 使用front() back()函数前必须先判断是否为空 empty()
