@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:55:01
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 17:41:08
+ * @LastEditTime: 2023-08-26 17:52:53
  * @Description:
  * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
  * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
@@ -62,12 +62,31 @@ using namespace std;
 
 // (5) size()
 
+// int main()
+// {
+//     priority_queue<int> q;
+//     q.push(3);
+//     q.push(4);
+//     q.push(1);
+//     printf("%d\n", q.size());
+//     return 0;
+// }
+
+// 4.priority_queue 内元素优先级的设置
+
+// (1) 基本数据类型的优先级设置
+
+// priority_queue<int> q;
+// priority_queue<int, vector<int>, less<int> > q;
+// 两种定义等价
+// less表示数字大优先级大 greater 表示数字小的优先级小
+
 int main()
 {
-    priority_queue<int> q;
+    priority_queue<int, vector<int>, greater<int>> q;
     q.push(3);
     q.push(4);
     q.push(1);
-    printf("%d\n", q.size());
+    printf("%d\n", q.top());
     return 0;
 }
