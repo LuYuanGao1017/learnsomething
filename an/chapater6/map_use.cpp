@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:28:31
+ * @LastEditTime: 2023-08-26 15:34:51
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
@@ -77,6 +77,21 @@ using namespace std;
 // }
 
 // <2 erase(key)
+// O(log N)
+
+// int main()
+// {
+//     map<char, int> mp;
+//     mp['a'] = 1;
+//     mp['b'] = 2;
+//     mp['c'] = 3;
+//     mp.erase('b');
+//     for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
+//         printf("%c %d\n", it->first, it->second);
+//     return 0;
+// }
+
+// 删除区间元素
 
 int main()
 {
@@ -84,7 +99,8 @@ int main()
     mp['a'] = 1;
     mp['b'] = 2;
     mp['c'] = 3;
-    mp.erase('b');
+    map<char, int>::iterator it = mp.find('b');
+    mp.erase(it, mp.end());
     for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
         printf("%c %d\n", it->first, it->second);
     return 0;
