@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:12:02
+ * @LastEditTime: 2023-08-26 15:16:15
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
@@ -46,7 +46,22 @@ using namespace std;
 // }
 
 // 3. map常用函数实例解析
-// find(key) O(logN) N为map中映射的个数
+//(1) find(key) O(logN) N为map中映射的个数
+
+// int main()
+// {
+//     map<char, int> mp;
+//     mp['a'] = 1;
+//     mp['b'] = 2;
+//     mp['c'] = 3;
+//     map<char, int>::iterator it = mp.find('b');
+//     printf("%c %d\n", it->first, it->second);
+//     return 0;
+// }
+
+// (2) erase()
+// 单个删除两种方法
+// <1 erase(it) it为要删除的元素的迭代器 O(1)
 
 int main()
 {
@@ -55,8 +70,12 @@ int main()
     mp['b'] = 2;
     mp['c'] = 3;
     map<char, int>::iterator it = mp.find('b');
-    printf("%c %d\n", it->first, it->second);
+    mp.erase(it); // 删除b 2
+    for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
+        printf("%c %d\n", it->first, it->second);
     return 0;
 }
+
+// <2
 
 // 4. map常用途径
