@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:09:41
+ * @LastEditTime: 2023-08-26 15:12:02
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
@@ -46,7 +46,7 @@ using namespace std;
 // }
 
 // 3. map常用函数实例解析
-// find(key)
+// find(key) O(logN) N为map中映射的个数
 
 int main()
 {
