@@ -93,18 +93,18 @@ using namespace std;
 
 // 删除区间元素
 
-int main()
-{
-    map<char, int> mp;
-    mp['a'] = 1;
-    mp['b'] = 2;
-    mp['c'] = 3;
-    map<char, int>::iterator it = mp.find('b');
-    mp.erase(it, mp.end());
-    for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
-        printf("%c %d\n", it->first, it->second);
-    return 0;
-}
+// int main()
+// {
+//     map<char, int> mp;
+//     mp['a'] = 1;
+//     mp['b'] = 2;
+//     mp['c'] = 3;
+//     map<char, int>::iterator it = mp.find('b');
+//     mp.erase(it, mp.end());
+//     for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
+//         printf("%c %d\n", it->first, it->second);
+//     return 0;
+// }
 
 // (3) size()
 
