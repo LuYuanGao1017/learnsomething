@@ -1,0 +1,25 @@
+/*
+ * @Author: LynnGao
+ * @Date: 2023-08-26 16:55:01
+ * @LastEditors: LynnGao
+ * @LastEditTime: 2023-08-26 17:07:48
+ * @Description: 
+ * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
+ * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
+ */
+// 1.priority_queue的定义
+// priority_queue<typename> name;
+// 2.priority_queue 容器内元素的访问
+// 优先队列没有front()和back()函数
+#include <stdio.h>
+#include <queue>
+using namespace std;
+int main(){
+    priority_queue<int> q;
+    q.push(3);
+    q.push(4);
+    q.push(1);
+    // 只能通过top()访问队首元素
+    printf("%d\n", q.top());
+    return 0;
+}
