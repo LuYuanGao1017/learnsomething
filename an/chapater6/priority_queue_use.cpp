@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:55:01
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 17:07:48
+ * @LastEditTime: 2023-08-26 17:41:08
  * @Description: 
  * 优先队列 底层是用堆实现 队首元素一定是当前队列中优先级最高的那一个
  * @FilePath: \learnsomething\an\chapater6\priority_queue_use.cpp
@@ -14,12 +14,32 @@
 #include <stdio.h>
 #include <queue>
 using namespace std;
+
+// int main(){
+//     priority_queue<int> q;
+//     q.push(3);
+//     q.push(4);
+//     q.push(1);
+//     // 只能通过top()访问队首元素
+//     printf("%d\n", q.top());
+//     return 0;
+// }
+
+// 3.priority常用函数实例
+
+// (1) push(x) O(logN)
+// (2) top()
+// (3) pop()
+
 int main(){
     priority_queue<int> q;
     q.push(3);
     q.push(4);
     q.push(1);
-    // 只能通过top()访问队首元素
+    printf("%d\n", q.top());
+    q.pop();
     printf("%d\n", q.top());
     return 0;
 }
+
+// (4) empty()
