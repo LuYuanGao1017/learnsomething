@@ -90,3 +90,5 @@ int main()
     printf("%d\n", q.top());
     return 0;
 }
+
+// (2) 结构体优先级设置
