@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 16:16:41
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 16:25:24
+ * @LastEditTime: 2023-08-26 16:27:50
  * @Description:
  * 先进先出 队列
  * @FilePath: \learnsomething\an\chapater6\queue_use.cpp
@@ -32,9 +32,9 @@ int main()
 {
     queue<int> q;
     for (int i = 1; i <= 5; i++)
-        q.push(i);
+        q.push(i); // 1 2 3 4 5 入队
     for (int i = 1; i <= 3; i++)
-        q.pop();
+        q.pop(); // 1 2 3 出队
     printf("%d\n", q.front());
     return 0;
 }
