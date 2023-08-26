@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-23 13:52:13
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-26 15:05:36
+ * @LastEditTime: 2023-08-26 15:09:41
  * @Description:
  * 映射
  * 数组 array[0] = 25 array[4] = 36 分别将0和4映射到25和36上
@@ -34,17 +34,29 @@ using namespace std;
 
 // (2) 通过迭代器访问
 
-int main(){
-    map<char, int> mp;
-    mp['m'] = 20;
-    mp['r'] = 30;
-    mp['a'] = 40;
-    for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
-        printf("%c %d\n", it -> first, it -> second);
-    
-    return 0;
-}
+// int main(){
+//     map<char, int> mp;
+//     mp['m'] = 20;
+//     mp['r'] = 30;
+//     mp['a'] = 40;
+//     for (map<char, int>::iterator it = mp.begin(); it != mp.end(); it++)
+//         printf("%c %d\n", it -> first, it -> second);
+
+//     return 0;
+// }
 
 // 3. map常用函数实例解析
+// find(key)
+
+int main()
+{
+    map<char, int> mp;
+    mp['a'] = 1;
+    mp['b'] = 2;
+    mp['c'] = 3;
+    map<char, int>::iterator it = mp.find('b');
+    printf("%c %d\n", it->first, it->second);
+    return 0;
+}
 
 // 4. map常用途径
