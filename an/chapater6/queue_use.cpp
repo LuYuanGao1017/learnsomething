@@ -12,6 +12,9 @@
 #include <queue>
 using namespace std;
 
+// 1. queue的定义
+// 2. queue容器内元素的访问
+
 int main()
 {
     queue<int> q;
@@ -20,3 +23,5 @@ int main()
     printf("%d %d\n", q.front(), q.back());
     return 0;
 }
+
+// 3.queue常用函数实例
