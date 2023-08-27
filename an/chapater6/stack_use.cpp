@@ -28,16 +28,16 @@ using namespace std;
 // (2) top()
 // (3) pop()
 
-int main()
-{
-    stack<int> st;
-    for (int i = 1; i <= 5; i++)
-        st.push(i);
-    for (int i = 1; i <= 3; i++)
-        st.pop();
-    printf("%d\n", st.top());
-    return 0;
-}
+// int main()
+// {
+//     stack<int> st;
+//     for (int i = 1; i <= 5; i++)
+//         st.push(i);
+//     for (int i = 1; i <= 3; i++)
+//         st.pop();
+//     printf("%d\n", st.top());
+//     return 0;
+// }
 
 // (4) empty()
 int main()
