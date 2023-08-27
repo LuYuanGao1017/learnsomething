@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 15:40:12
+ * @LastEditTime: 2023-08-27 15:47:41
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -241,31 +241,36 @@ cc
 // 在有序数组或容器中使用
 // lower_bound(first, last, val)寻找[first, last)范围内第一个值大于等于val的元素位置
 // upper_bound(first, last, val)寻找[first, last)范围内第一个值大于等于val的元素位置
-int main()
-{
-    int a[10] = {1, 2, 2, 3, 3, 3, 5, 5, 5, 5};
-    // 寻找数组a[0, 10)范围内第一个大于等于 -1 的元素位置
-    int *lowerPos = lower_bound(a, a + 10, -1);
-    int *upperPos = upper_bound(a, a + 10, -1);
-    printf("%d %d\n", lowerPos - a, upperPos - a);
-    // 寻找数组a[0, 10)范围内第一个大于等于 1 的元素位置
-    lowerPos = lower_bound(a, a + 10, 1);
-    upperPos = upper_bound(a, a + 10, 1);
-    printf("%d %d\n", lowerPos - a, upperPos - a);
-    // 寻找数组a[0, 10)范围内第一个大于等于 3 的元素位置
-    lowerPos = lower_bound(a, a + 10, 3);
-    upperPos = upper_bound(a, a + 10, 3);
-    printf("%d %d\n", lowerPos - a, upperPos - a);
-    // 寻找数组a[0, 10)范围内第一个大于等于 4 的元素位置
-    lowerPos = lower_bound(a, a + 10, 4);
-    upperPos = upper_bound(a, a + 10, 4);
-    printf("%d %d\n", lowerPos - a, upperPos - a);
-    // 寻找数组a[0, 10)范围内第一个大于等于 6 的元素位置
-    lowerPos = lower_bound(a, a + 10, 6);
-    upperPos = upper_bound(a, a + 10, 6);
-    printf("%d %d\n", lowerPos - a, upperPos - a);
-    return 0;
-}
+// int main()
+// {
+//     int a[10] = {1, 2, 2, 3, 3, 3, 5, 5, 5, 5};
+//     // 寻找数组a[0, 10)范围内第一个大于等于 -1 的元素位置
+//     int *lowerPos = lower_bound(a, a + 10, -1);
+//     int *upperPos = upper_bound(a, a + 10, -1);
+//     printf("%d %d\n", lowerPos - a, upperPos - a);
+//     // 寻找数组a[0, 10)范围内第一个大于等于 1 的元素位置
+//     lowerPos = lower_bound(a, a + 10, 1);
+//     upperPos = upper_bound(a, a + 10, 1);
+//     printf("%d %d\n", lowerPos - a, upperPos - a);
+//     // 寻找数组a[0, 10)范围内第一个大于等于 3 的元素位置
+//     lowerPos = lower_bound(a, a + 10, 3);
+//     upperPos = upper_bound(a, a + 10, 3);
+//     printf("%d %d\n", lowerPos - a, upperPos - a);
+//     // 寻找数组a[0, 10)范围内第一个大于等于 4 的元素位置
+//     lowerPos = lower_bound(a, a + 10, 4);
+//     upperPos = upper_bound(a, a + 10, 4);
+//     printf("%d %d\n", lowerPos - a, upperPos - a);
+//     // 寻找数组a[0, 10)范围内第一个大于等于 6 的元素位置
+//     lowerPos = lower_bound(a, a + 10, 6);
+//     upperPos = upper_bound(a, a + 10, 6);
+//     printf("%d %d\n", lowerPos - a, upperPos - a);
+//     return 0;
+// }
 
 // 如果只想获取下标 可以不使用临时指针 直接返回值减去数组首地址
 
+int main(){
+    int a[10] = {1, 2, 2, 3, 3, 3, 5, 5, 5, 5};
+    printf("%d %d\n", lower_bound(a, a + 10, 3) - a, upper_bound(a, a + 10, 3) - a);
+    return 0;
+}
