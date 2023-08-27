@@ -15,6 +15,7 @@ using namespace std;
 int main(){
     int x = 1, y = -2;
     printf("max(%d,%d) = %d\nmin(%d, %d) = %d\n", x, y, max(x, y), x, y, min(x, y));
+    printf("abs(%d) = %d\nabs(%d) = %d", x, abs(x), y, abs(y));
     return 0;
 }
 // 2. swap()
