@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 12:00:31
+ * @LastEditTime: 2023-08-27 12:03:41
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -12,13 +12,25 @@
 using namespace std;
 
 // 1. max() min() abs()
-int main(){
-    int x = 1, y = -2;
-    printf("max(%d,%d) = %d\nmin(%d, %d) = %d\n", x, y, max(x, y), x, y, min(x, y));
-    printf("abs(%d) = %d\nabs(%d) = %d", x, abs(x), y, abs(y));
+
+// int main()
+// {
+//     int x = 1, y = -2;
+//     printf("max(%d,%d) = %d\nmin(%d, %d) = %d\n", x, y, max(x, y), x, y, min(x, y));
+//     printf("abs(%d) = %d\nabs(%d) = %d", x, abs(x), y, abs(y));
+//     return 0;
+// }
+
+// 2. swap()
+
+int main()
+{
+    int x = 1, y = 2;
+    printf("x = %d y = %d\n", x, y);
+    swap(x, y);
+    printf("After swap\nx = %d y = %d", x, y);
     return 0;
 }
-// 2. swap()
 
 // 3. reverse()
 
