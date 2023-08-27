@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-27 10:20:27
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 11:50:25
+ * @LastEditTime: 2023-08-27 11:52:00
  * @Description:  绑定两个元素一起不想用struct时
  * pair 内部有两个元素的结构体 两个元素类型是可以指定的
  * @FilePath: \learnsomething\an\chapater6\pair_use.cpp
@@ -30,19 +30,31 @@ using namespace std;
 
 // 2.pair中元素的访问
 #include <string>
-int main()
-{
-    pair<string, int> p;
-    p.first = "haha";
-    p.second = 5;
-    cout << p.first << " " << p.second << endl;
-    p = make_pair("xixi", 55);
-    cout << p.first << " " << p.second << endl;
-    p = pair<string, int>("heihei", 555);
-    cout << p.first << " " << p.second << endl;
-    return 0;
-}
+
+// int main()
+// {
+//     pair<string, int> p;
+//     p.first = "haha";
+//     p.second = 5;
+//     cout << p.first << " " << p.second << endl;
+//     p = make_pair("xixi", 55);
+//     cout << p.first << " " << p.second << endl;
+//     p = pair<string, int>("heihei", 555);
+//     cout << p.first << " " << p.second << endl;
+//     return 0;
+// }
+
 // 3.pair常用函数实例解析
 // 比较操作数
 // 两个pair类型数据可以直接使用 == != < > <= >= 比较
 // 先以first大小作为标准 只有当first相等时才去判别second的大小
+
+int main(){
+    pair<int, int> p1(5, 10);
+    pair<int, int> p2(5, 15);
+    pair<int, int> p3(10, 5);
+    if(p1 < p3) printf("p1 < p3\n");
+    if(p1 <= p3) printf("p1 <= p3\n");
+    if(p1 < p2) printf("p1 < p2\n");
+    return 0;
+}
