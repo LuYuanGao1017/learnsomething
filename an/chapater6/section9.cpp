@@ -2,13 +2,15 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 12:04:47
+ * @LastEditTime: 2023-08-27 12:45:47
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
 #include <stdio.h>
 #include <algorithm>
-
+#include <string>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 // 1. max() min() abs()
@@ -35,15 +37,27 @@ using namespace std;
 // 3. reverse()
 // reverse(it, it2) 将数组指针在[it, it2)之间元素或容器的迭代器元素进行反转
 
+// int main()
+// {
+//     int a[10] = {10, 11, 12, 13, 14, 15};
+//     for (int i = 0; i < 10; i++)
+//         printf("%d ", a[i]);
+//     reverse(a, a + 4);
+//     printf("\nAfter reverse(a, a + 4)\n");
+//     for (int i = 0; i < 10; i++)
+//         printf("%d ", a[i]);
+//     return 0;
+// }
+
+// 字符串string的反转也一样
+
 int main()
 {
-    int a[10] = {10, 11, 12, 13, 14, 15};
-    for (int i = 0; i < 10; i++)
-        printf("%d ", a[i]);
-    reverse(a, a + 4);
-    printf("\nAfter reverse(a, a + 4)\n");
-    for (int i = 0; i < 10; i++)
-        printf("%d ", a[i]);
+    string str = "abcdefghi";
+    cout << str << endl;
+    printf("After reverse(str.begin()+2, str.begin()+6)\n");
+    reverse(str.begin() + 2, str.begin() + 6);
+    cout << str << endl;
     return 0;
 }
 
@@ -160,9 +174,6 @@ int main()
 // (3)容器的排序
 // STL标准容器中 只有vector string deque是可以使用sort的
 
-#include <iostream>
-// #include <vector>
-
 // bool cmp(int a, int b)
 // {
 //     return a > b;
@@ -180,7 +191,6 @@ int main()
 //     return 0;
 // }
 
-#include <string>
 // int main(){
 //     string str[3] = {"bbbb", "cc", "aaa"};
 //     sort(str, str + 3);
