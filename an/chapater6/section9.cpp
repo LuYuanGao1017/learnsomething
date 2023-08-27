@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 12:45:47
+ * @LastEditTime: 2023-08-27 15:21:01
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -51,18 +51,27 @@ using namespace std;
 
 // 字符串string的反转也一样
 
-int main()
-{
-    string str = "abcdefghi";
-    cout << str << endl;
-    printf("After reverse(str.begin()+2, str.begin()+6)\n");
-    reverse(str.begin() + 2, str.begin() + 6);
-    cout << str << endl;
-    return 0;
-}
+// int main()
+// {
+//     string str = "abcdefghi";
+//     cout << str << endl;
+//     printf("After reverse(str.begin()+2, str.begin()+6)\n");
+//     reverse(str.begin() + 2, str.begin() + 6);
+//     cout << str << endl;
+//     return 0;
+// }
 
 // 4. next_permutation()
-
+// 给出一个叙利厄在全排列中的下一个序列
+int main()
+{
+    int a[10] = {1, 2, 3};
+    do
+    {
+        printf("%d%d%d\n", a[0], a[1], a[2]);
+    } while (next_permutation(a, a + 3));
+    return 0;
+}
 // 5. fill()
 
 // 6. sort() function
