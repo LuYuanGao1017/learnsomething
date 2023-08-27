@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 12:03:41
+ * @LastEditTime: 2023-08-27 12:04:47
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -23,16 +23,33 @@ using namespace std;
 
 // 2. swap()
 
-int main()
-{
-    int x = 1, y = 2;
-    printf("x = %d y = %d\n", x, y);
-    swap(x, y);
-    printf("After swap\nx = %d y = %d", x, y);
-    return 0;
-}
+// int main()
+// {
+//     int x = 1, y = 2;
+//     printf("x = %d y = %d\n", x, y);
+//     swap(x, y);
+//     printf("After swap\nx = %d y = %d", x, y);
+//     return 0;
+// }
 
 // 3. reverse()
+// reverse(it, it2) 将数组指针在[it, it2)之间元素或容器的迭代器元素进行反转
+
+int main(){
+    int a[10] = {10, 11, 12, 13, 14, 15};
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    reverse(a, a + 4);
+    printf("\nAfter reverse(a, a + 4)\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    
+    return 0;
+}
 
 // 4. next_permutation()
 
