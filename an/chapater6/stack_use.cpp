@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 18:32:08
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 09:25:21
+ * @LastEditTime: 2023-08-27 09:28:11
  * @Description: 栈 后进先出
  * @FilePath: \learnsomething\an\chapater6\stack_use.cpp
  */
@@ -40,18 +40,29 @@ using namespace std;
 // }
 
 // (4) empty()
-int main()
-{
+
+// int main()
+// {
+//     stack<int> st;
+//     if (st.empty())
+//         printf("Stack is Empty.\n");
+//     else
+//         printf("Stack not Empty.\n");
+//     printf("After push 1.\n");
+//     st.push(1);
+//     if (st.empty())
+//         printf("Stack is Empty.\n");
+//     else
+//         printf("Stack not Empty.\n");
+//     return 0;
+// }
+
+// (5) size()
+
+int main(){
     stack<int> st;
-    if (st.empty())
-        printf("Stack is Empty.\n");
-    else
-        printf("Stack not Empty.\n");
-    printf("After push 1.\n");
-    st.push(1);
-    if (st.empty())
-        printf("Stack is Empty.\n");
-    else
-        printf("Stack not Empty.\n");
+    for (int i = 1; i <= 5; i++)
+        st.push(i);
+    printf("%d\n", st.size());
     return 0;
 }
