@@ -35,19 +35,15 @@ using namespace std;
 // 3. reverse()
 // reverse(it, it2) 将数组指针在[it, it2)之间元素或容器的迭代器元素进行反转
 
-int main(){
+int main()
+{
     int a[10] = {10, 11, 12, 13, 14, 15};
     for (int i = 0; i < 10; i++)
-    {
         printf("%d ", a[i]);
-    }
     reverse(a, a + 4);
     printf("\nAfter reverse(a, a + 4)\n");
     for (int i = 0; i < 10; i++)
-    {
         printf("%d ", a[i]);
-    }
-    
     return 0;
 }
 
