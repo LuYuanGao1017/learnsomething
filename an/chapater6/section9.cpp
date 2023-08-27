@@ -2,11 +2,29 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-11 11:36:30
+ * @LastEditTime: 2023-08-27 12:00:31
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
 #include <stdio.h>
+#include <algorithm>
+
+using namespace std;
+
+// 1. max() min() abs()
+int main(){
+    int x = 1, y = -2;
+    printf("max(%d,%d) = %d\nmin(%d, %d) = %d\n", x, y, max(x, y), x, y, min(x, y));
+    return 0;
+}
+// 2. swap()
+
+// 3. reverse()
+
+// 4. next_permutation()
+
+// 5. fill()
+
 // 6. sort() function
 
 // 根据具体情形使用不同的排序方法，效率较高。
@@ -14,9 +32,6 @@
 // (1)如何使用sort()
 // 头文件 algorithm using namespace std;
 // sort(首元素地址(必须), 尾元素地址的下一个地址(必须), 比较函数(非必须))
-#include <algorithm>
-
-using namespace std;
 
 // int 数组大小排序
 // int main()
@@ -139,7 +154,7 @@ using namespace std;
 //     return 0;
 // }
 
-#include<string>
+#include <string>
 // int main(){
 //     string str[3] = {"bbbb", "cc", "aaa"};
 //     sort(str, str + 3);
@@ -147,19 +162,19 @@ using namespace std;
 //         cout<<str[i]<<endl;
 //     return 0;
 // }
-/* 
+/*
 aaa
 bbbb
-cc 
+cc
 */
 
-bool cmp(string str1, string str2){
-    return str1.length() < str2.length();
-}
-int main(){
-    string str[3] = {"bbbb", "cc", "aaa"};
-    sort(str, str + 3, cmp);
-    for (int i = 0; i < 3; i++)
-        cout<<str[i]<<endl;
-    return 0;
-}
+// bool cmp(string str1, string str2){
+//     return str1.length() < str2.length();
+// }
+// int main(){
+//     string str[3] = {"bbbb", "cc", "aaa"};
+//     sort(str, str + 3, cmp);
+//     for (int i = 0; i < 3; i++)
+//         cout<<str[i]<<endl;
+//     return 0;
+// }
