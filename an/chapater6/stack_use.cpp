@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-26 18:32:08
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 09:28:11
+ * @LastEditTime: 2023-08-27 09:30:01
  * @Description: 栈 后进先出
  * @FilePath: \learnsomething\an\chapater6\stack_use.cpp
  */
@@ -66,3 +66,6 @@ int main(){
     printf("%d\n", st.size());
     return 0;
 }
+
+// 4.stack常见用途
+// 栈内存较小 模拟递归实现
