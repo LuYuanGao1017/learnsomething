@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-27 10:20:27
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 10:58:06
+ * @LastEditTime: 2023-08-27 11:50:25
  * @Description:  绑定两个元素一起不想用struct时
  * pair 内部有两个元素的结构体 两个元素类型是可以指定的
  * @FilePath: \learnsomething\an\chapater6\pair_use.cpp
@@ -43,3 +43,6 @@ int main()
     return 0;
 }
 // 3.pair常用函数实例解析
+// 比较操作数
+// 两个pair类型数据可以直接使用 == != < > <= >= 比较
+// 先以first大小作为标准 只有当first相等时才去判别second的大小
