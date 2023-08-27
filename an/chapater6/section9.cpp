@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-10 15:32:02
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-27 15:21:01
+ * @LastEditTime: 2023-08-27 15:25:01
  * @Description: Common functions under the algorithm header file
  * @FilePath: \learnsomething\an\chapater6\section9.cpp
  */
@@ -63,17 +63,28 @@ using namespace std;
 
 // 4. next_permutation()
 // 给出一个叙利厄在全排列中的下一个序列
+// int main()
+// {
+//     int a[10] = {1, 2, 3};
+//     do
+//     {
+//         printf("%d%d%d\n", a[0], a[1], a[2]);
+//     } while (next_permutation(a, a + 3));
+//     return 0;
+// }
+// 5. fill()
+// 把数组或容器中的某一段区间赋相同值
 int main()
 {
-    int a[10] = {1, 2, 3};
-    do
-    {
-        printf("%d%d%d\n", a[0], a[1], a[2]);
-    } while (next_permutation(a, a + 3));
+    int a[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++)
+        printf("%d ", a[i]);
+    printf("\nAfter fill(a, a + 5, 233)\n");
+    fill(a, a + 5, 233);
+    for (int i = 0; i < 5; i++)
+        printf("%d ", a[i]);
     return 0;
 }
-// 5. fill()
-
 // 6. sort() function
 
 // 根据具体情形使用不同的排序方法，效率较高。
