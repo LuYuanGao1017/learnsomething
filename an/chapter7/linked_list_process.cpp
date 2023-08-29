@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-29 22:08:47
+ * @LastEditTime: 2023-08-29 22:11:23
  * @Description: 
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -56,3 +56,5 @@ int main(){
     return 0;
 }
 // 2.查找元素
+// 3.插入元素
+// 4.删除元素
