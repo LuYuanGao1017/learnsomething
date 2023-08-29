@@ -6,9 +6,10 @@
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\queue_application.cpp
  */
+
 // 输入10个整数
-// 最小的数与第一个数兑换
-// 最大的数与最后一个数兑换
+// 最小的数与第一个数换位置
+// 最大的数与最后一个数换位置
 // 三个函数
 // (1)输入10个数
 // (2)进行处理
