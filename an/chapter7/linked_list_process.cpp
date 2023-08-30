@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 09:47:19
+ * @LastEditTime: 2023-08-30 09:50:26
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -57,7 +57,7 @@ int main()
     }
     return 0;
 }
-// 2.查找元素 
+// 2.查找元素
 // count 元素个数
 int search(node *head, int x)
 {
@@ -74,16 +74,35 @@ int search(node *head, int x)
     return count;
 }
 // 3.插入元素
-void  insert(node* head, int pos, int x){
-    node* p = head;
+void insert(node *head, int pos, int x)
+{
+    node *p = head;
     for (int i = 0; i < pos - 1; i++)
     {
         p = p->next;
     }
-    node* q = new node;
+    node *q = new node;
     q->data = x;
     q->next = p->next;
     p->next = q;
-    
 }
 // 4.删除元素
+void del(node *head, int x)
+{
+    node *p = head->next;
+    node *pre = head;
+    while (p != NULL)
+    {
+        if (p->data == x)
+        {
+            pre->next = p->next;
+            delete (p);
+            p = pre->next;
+        }
+        else
+        {
+            pre = p;
+            p = p->next;
+        }
+    }
+}
