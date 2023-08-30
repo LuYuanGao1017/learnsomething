@@ -2,8 +2,8 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-29 22:11:23
- * @Description: 
+ * @LastEditTime: 2023-08-30 09:38:39
+ * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
 // 7.3.1 链表的概念
@@ -25,11 +25,12 @@
 struct node
 {
     int data;
-    node* next;
+    node *next;
 };
 
-node* create(int Array[]){
-    node* p, *pre, *head;
+node *create(int Array[])
+{
+    node *p, *pre, *head;
     head = new node;
     head->next = NULL;
     pre = head;
@@ -44,17 +45,33 @@ node* create(int Array[]){
     return head;
 }
 
-int main(){
+int main()
+{
     int Array[5] = {5, 3, 6, 1, 2};
-    node* L = create(Array);
+    node *L = create(Array);
     L = L->next;
-    while (L!=NULL)
+    while (L != NULL)
     {
         printf("%d ", L->data);
         L = L->next;
     }
     return 0;
 }
-// 2.查找元素
+// 2.查找元素 
+// count 元素个数
+int search(node *head, int x)
+{
+    int count = 0;
+    node *p = head->next;
+    while (p != NULL)
+    {
+        if (p->data == x)
+        {
+            count++;
+        }
+        p = p->next;
+    }
+    return count;
+}
 // 3.插入元素
 // 4.删除元素
