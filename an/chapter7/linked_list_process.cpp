@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 09:50:26
+ * @LastEditTime: 2023-08-30 09:57:54
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -106,3 +106,11 @@ void del(node *head, int x)
         }
     }
 }
+
+// 7.3.4 静态链表 原理 hash
+// 不需要头节点
+
+// struct Node{
+//     typename data;
+//     int next;
+// }node[size];
