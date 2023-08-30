@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 14:46:53
+ * @LastEditTime: 2023-08-30 15:29:20
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -115,42 +115,104 @@
 //     int next;
 // }node[size];
 
-// PAT A1032
+// // PAT A1032
+// #include <stdio.h>
+// #include <stdlib.h>
+// const int maxn = 100010;
+// struct NODE
+// {
+//     char c;
+//     int next;
+//     bool flag;
+// } node[maxn];
+
+// int main()
+// {
+//     for (int i = 0; i < maxn; i++)
+//         node[i].flag = false;
+//     int a1, a2, n;
+//     scanf("%d%d%d", &a1, &a2, &n);
+//     int add, next;
+//     char data;
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d %c %d", &add, &data, &next);
+//         node[add].c = data;
+//         node[add].next = next;
+//     }
+//     int p;
+//     for (p = a1; p != -1; p = node[p].next)
+//         node[p].flag = true;
+//     for (p = a2; p != -1; p = node[p].next)
+//     {
+//         if (node[p].flag == true)
+//             break;
+//     }
+//     if (p != -1)
+//         printf("%05d\n", p);
+//     else
+//         printf("-1\n");
+//     return 0;
+// }
+
+// PAT A1052
 #include <stdio.h>
 #include <stdlib.h>
+#include <algorithm>
+using namespace std;
+
 const int maxn = 100010;
 struct NODE
 {
-    char c;
-    int next;
+    int add, key, next;
     bool flag;
 } node[maxn];
+
+bool cmp(NODE a, NODE b)
+{
+    if (a.flag == false || b.flag == false)
+        return a.flag > b.flag;
+    else
+        return a.key < b.key;
+}
 
 int main()
 {
     for (int i = 0; i < maxn; i++)
         node[i].flag = false;
-    int a1, a2, n;
-    scanf("%d%d%d", &a1, &a2, &n);
-    int add, next;
-    char data;
+    int n, s;
+    scanf("%d%d", &n, &s);
+    int a, k, nt;
     for (int i = 0; i < n; i++)
     {
-        scanf("%d %c %d", &add, &data, &next);
-        node[add].c = data;
-        node[add].next = next;
+        scanf("%d%d%d", &a, &k, &nt);
+        node[a].add = a;
+        node[a].key = k;
+        node[a].next = nt;
     }
-    int p;
-    for (p = a1; p != -1; p = node[p].next)
-        node[p].flag = true;
-    for (p = a2; p != -1; p = node[p].next)
+    int count = 0, p = s;
+    while (p != -1)
     {
-        if (node[p].flag == true)
-            break;
+        node[p].flag = true;
+        count++;
+        p = node[p].next;
     }
-    if (p != -1)
-        printf("%05d\n", p);
+    if (count == 0)
+    {
+        printf("0 -1");
+    }
     else
-        printf("-1\n");
+    {
+        sort(node, node + maxn, cmp);
+        printf("%d %05d\n", count, node[0].add);
+        for (int i = 0; i < count; i++)
+        {
+            if (i != count - 1)
+                printf("%05d %d %05d\n", node[i].add, node[i].key, node[i + 1].add);
+            else
+                printf("%05d %d -1\n", node[i].add, node[i].key);
+        }
+    }
+
     return 0;
 }
