@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 15:29:20
+ * @LastEditTime: 2023-08-30 22:21:21
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -155,64 +155,261 @@
 //     return 0;
 // }
 
-// PAT A1052
+// // PAT A1052
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <algorithm>
+// using namespace std;
+
+// const int maxn = 100010;
+// struct NODE
+// {
+//     int add, key, next;
+//     bool flag;
+// } node[maxn];
+
+// bool cmp(NODE a, NODE b)
+// {
+//     if (a.flag == false || b.flag == false)
+//         return a.flag > b.flag;
+//     else
+//         return a.key < b.key;
+// }
+
+// int main()
+// {
+//     for (int i = 0; i < maxn; i++)
+//         node[i].flag = false;
+//     int n, s;
+//     scanf("%d%d", &n, &s);
+//     int a, k, nt;
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d%d%d", &a, &k, &nt);
+//         node[a].add = a;
+//         node[a].key = k;
+//         node[a].next = nt;
+//     }
+//     int count = 0, p = s;
+//     while (p != -1)
+//     {
+//         node[p].flag = true;
+//         count++;
+//         p = node[p].next;
+//     }
+//     if (count == 0)
+//     {
+//         printf("0 -1");
+//     }
+//     else
+//     {
+//         sort(node, node + maxn, cmp);
+//         printf("%d %05d\n", count, node[0].add);
+//         for (int i = 0; i < count; i++)
+//         {
+//             if (i != count - 1)
+//                 printf("%05d %d %05d\n", node[i].add, node[i].key, node[i + 1].add);
+//             else
+//                 printf("%05d %d -1\n", node[i].add, node[i].key);
+//         }
+//     }
+
+//     return 0;
+// }
+
+// codeup a
+// 输入
+// 3 3 2 1 初始化列表 3代表后面有三个整数 3 2 1
+// 输入顺序与列表中顺序相反
+// 第二行一个整数m 下面有m行
+// 21 每行是字符串 选自 "get" "insert" "delet" "show"中一种
+// "get" "delete"后面一行有一个整数a说明 获得删除第a个元素
+// "insert"后面一行两个整数 a 和 e 在第a个位置插入元素e
+// "show"后没有整数
+
+/* 样例输入
+3 3 2 1
+21
+show
+delete 1
+show
+delete 2
+show
+delete 1
+show
+delete 2
+insert 2 5
+show
+insert 1 5
+show
+insert 1 7
+show
+insert 2 5
+show
+insert 3 6
+show
+insert 1 8
+show
+get 2 */
+
+/* 样例输出
+1 2 3
+delete OK
+2 3
+delete OK
+2
+delete OK
+Link list is empty
+delete fail
+insert fail
+Link list is empty
+insert OK
+5
+insert OK
+7 5
+insert OK
+7 5 5
+insert OK
+7 5 6 5
+insert OK
+8 7 5 6 5
+7 */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <algorithm>
+#include <string>
+#include <iostream>
 using namespace std;
-
-const int maxn = 100010;
-struct NODE
+struct node
 {
-    int add, key, next;
-    bool flag;
-} node[maxn];
+    int data;
+    node *next;
+};
 
-bool cmp(NODE a, NODE b)
+void show(node *L)
 {
-    if (a.flag == false || b.flag == false)
-        return a.flag > b.flag;
+    L = L->next;
+    if (L != NULL)
+    {
+        while (L != NULL)
+        {
+            printf("%d ", L->data);
+            L = L->next;
+        }
+        printf("\n");
+    }
     else
-        return a.key < b.key;
+        printf("Link list is empty\n");
+}
+
+void get(node *L, int pos)
+{
+    node *p = L->next;
+    int j = 1;
+    while (p != NULL && j < pos)
+    {
+        p = p->next;
+        ++j;
+    }
+    if (p == NULL || j > pos)
+    {
+        printf("get failed\n");
+        return;
+    }
+    printf("%d\n", p->data);
+}
+
+void insert(node *L, int pos, int value)
+{
+    node *p = L;
+    int j = 0;
+    while (p != NULL && j < pos - 1)
+    {
+        p = p->next;
+        ++j;
+    }
+    if (p == NULL || j > pos - 1)
+    {
+        printf("insert fail\n");
+        return;
+    }
+    node *q = new node;
+    q->data = value;
+    q->next = p->next;
+    p->next = q;
+    printf("insert OK\n");
+}
+
+void del(node *L, int pos)
+{
+    node *p = L;
+    int j = 0;
+
+    while (p->next != NULL && j < pos - 1)
+    {
+        p = p->next;
+        ++j;
+    }
+
+    if (p->next == NULL || j > pos - 1)
+    {
+        printf("delete fail\n");
+        return;
+    }
+
+    node *q = p->next;
+    p->next = q->next;
+    delete q;
+    printf("delete OK\n");
 }
 
 int main()
 {
-    for (int i = 0; i < maxn; i++)
-        node[i].flag = false;
-    int n, s;
-    scanf("%d%d", &n, &s);
-    int a, k, nt;
+    // 第一行数据读取
+    int n;
+    cin >> n;
+    node *head, *p;
+    head = new node;
+    head->next = NULL;
+    int t;
     for (int i = 0; i < n; i++)
     {
-        scanf("%d%d%d", &a, &k, &nt);
-        node[a].add = a;
-        node[a].key = k;
-        node[a].next = nt;
+        cin >> t;
+        p = new node;
+        p->data = t;
+        p->next = head->next;
+        head->next = p;
     }
-    int count = 0, p = s;
-    while (p != -1)
+    // 指令读取执行
+    int numCom;
+    cin >> numCom;
+    getchar();
+    for (int i = 0; i < numCom; i++)
     {
-        node[p].flag = true;
-        count++;
-        p = node[p].next;
-    }
-    if (count == 0)
-    {
-        printf("0 -1");
-    }
-    else
-    {
-        sort(node, node + maxn, cmp);
-        printf("%d %05d\n", count, node[0].add);
-        for (int i = 0; i < count; i++)
+        string str;
+        cin >> str;
+        if (str == "get")
         {
-            if (i != count - 1)
-                printf("%05d %d %05d\n", node[i].add, node[i].key, node[i + 1].add);
-            else
-                printf("%05d %d -1\n", node[i].add, node[i].key);
+            int p;
+            cin >> p;
+            get(head, p);
+        }
+        if (str == "insert")
+        {
+            int p, k;
+            cin >> p >> k;
+            insert(head, p, k);
+        }
+        if (str == "show")
+        {
+            show(head);
+        }
+        if (str == "delete")
+        {
+            int p;
+            cin >> p;
+            del(head, p);
         }
     }
-
     return 0;
 }
