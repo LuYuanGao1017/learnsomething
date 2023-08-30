@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 09:59:00
+ * @LastEditTime: 2023-08-30 14:46:53
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -114,3 +114,43 @@
 //     typename data;
 //     int next;
 // }node[size];
+
+// PAT A1032
+#include <stdio.h>
+#include <stdlib.h>
+const int maxn = 100010;
+struct NODE
+{
+    char c;
+    int next;
+    bool flag;
+} node[maxn];
+
+int main()
+{
+    for (int i = 0; i < maxn; i++)
+        node[i].flag = false;
+    int a1, a2, n;
+    scanf("%d%d%d", &a1, &a2, &n);
+    int add, next;
+    char data;
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d %c %d", &add, &data, &next);
+        node[add].c = data;
+        node[add].next = next;
+    }
+    int p;
+    for (p = a1; p != -1; p = node[p].next)
+        node[p].flag = true;
+    for (p = a2; p != -1; p = node[p].next)
+    {
+        if (node[p].flag == true)
+            break;
+    }
+    if (p != -1)
+        printf("%05d\n", p);
+    else
+        printf("-1\n");
+    return 0;
+}
