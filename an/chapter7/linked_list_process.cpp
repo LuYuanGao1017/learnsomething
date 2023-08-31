@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-31 09:38:43
+ * @LastEditTime: 2023-08-31 10:59:14
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -274,7 +274,7 @@ insert OK
 insert OK
 8 7 5 6 5
 7 */
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -480,6 +480,137 @@ int main()
         {
             del(head, instr.second.first);
         }
+    }
+
+    return 0;
+} */
+
+// 问题B链表排序
+
+// #include <iostream>
+// #include <algorithm>
+// using namespace std;
+
+// struct stu{
+//     int id, score;
+// };
+
+// int main(){
+//     int n, m;
+//     cin >> n >> m;
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+
+// struct ListNode {
+//     int student_id;
+//     int score;
+//     ListNode* next;
+
+//     ListNode(int id, int scr) : student_id(id), score(scr), next(nullptr) {}
+// };
+
+// bool compare_students(const ListNode* a, const ListNode* b) {
+//     return a->student_id < b->student_id;
+// }
+
+// void print_list(ListNode* head) {
+//     while (head) {
+//         std::cout << head->student_id << " " << head->score << std::endl;
+//         head = head->next;
+//     }
+// }
+
+// int main() {
+//     int N, M;
+//     std::cin >> N >> M;
+
+//     std::vector<ListNode*> students;
+
+//     // Read data for list 'a'
+//     for (int i = 0; i < N; ++i) {
+//         int id, score;
+//         std::cin >> id >> score;
+//         students.push_back(new ListNode(id, score));
+//     }
+
+//     // Read data for list 'b'
+//     for (int i = 0; i < M; ++i) {
+//         int id, score;
+//         std::cin >> id >> score;
+//         students.push_back(new ListNode(id, score));
+//     }
+
+//     // Sort the students vector using sort function
+//     std::sort(students.begin(), students.end(), compare_students);
+
+//     // Reconstruct the sorted linked list
+//     ListNode dummy(0, 0);
+//     ListNode* current = &dummy;
+//     for (ListNode* student : students) {
+//         current->next = student;
+//         current = student;
+//     }
+//     current->next = nullptr;
+
+//     // Print the sorted list
+//     print_list(dummy.next);
+
+//     // Clean up memory
+//     for (ListNode* student : students) {
+//         delete student;
+//     }
+
+//     return 0;
+// }
+
+
+// 问题C
+#include <iostream>
+#include <vector>
+struct node
+{
+    int data;
+    node *next;
+    node(int d) : data(d), next(nullptr) {}
+};
+
+int main()
+{
+    std::vector<node *> nodes;
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        int d;
+        std::cin >> d;
+        nodes.push_back(new node(d));
+    }
+    int m;
+    std::cin >> m;
+    for (int i = 0; i < m; i++)
+    {
+        int d;
+        std::cin >> d;
+        nodes.push_back(new node(d));
+    }
+    node *head, *cur;
+    head = new node(-1);
+    cur = head;
+    for (node *n : nodes)
+    {
+        cur->next = n;
+        cur = n;
+    }
+    cur->next = nullptr;
+    node * L = head->next;
+    while (L)
+    {
+        std::cout << L->data << " ";
+        L = L->next;
     }
 
     return 0;
