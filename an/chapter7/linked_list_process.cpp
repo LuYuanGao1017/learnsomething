@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-31 10:59:14
+ * @LastEditTime: 2023-08-31 11:47:33
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -567,9 +567,8 @@ int main()
 //     return 0;
 // }
 
-
 // 问题C
-#include <iostream>
+/* #include <iostream>
 #include <vector>
 struct node
 {
@@ -613,5 +612,63 @@ int main()
         L = L->next;
     }
 
+    return 0;
+} */
+
+// 问题D
+
+#include <iostream>
+#include <algorithm>
+int search(int Arr[], int v, int left, int right)
+{
+    int mid;
+    while (left <= right)
+    {
+        mid = (left + right) / 2;
+        if (Arr[mid] == v)
+        {
+            Arr[mid] = Arr[mid + 1];
+            Arr[mid + 1] = v;
+            return 1;
+        }
+        else if (Arr[mid] > v)
+        {
+            right = mid - 1;
+        }
+        else
+        {
+            left = mid + 1;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    int x, l;
+    std::cin >> x >> l;
+    int a[l + 1];
+    for (int i = 0; i < l; i++)
+    {
+        std::cin >> a[i];
+    }
+    if (search(a, x, 0, l - 1) == 1)
+    {
+        std::cout << x << std::endl;
+        for (int i = 0; i < l; i++)
+        {
+            std::cout << a[i] << " ";
+        }
+    }
+    else
+    {
+        a[l] = x;
+        std::sort(a, a + l + 1);
+        std::cout << "no" << std::endl;
+        for (int i = 0; i < l + 1; i++)
+        {
+            std::cout << a[i] << " ";
+        }
+    }
     return 0;
 }
