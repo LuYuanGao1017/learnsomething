@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-30 22:21:21
+ * @LastEditTime: 2023-08-31 09:38:43
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -279,6 +279,7 @@ insert OK
 #include <stdlib.h>
 #include <string>
 #include <iostream>
+#include <vector>
 using namespace std;
 struct node
 {
@@ -363,6 +364,57 @@ void del(node *L, int pos)
     printf("delete OK\n");
 }
 
+// int main()
+// {
+//     // 第一行数据读取
+//     int n;
+//     cin >> n;
+//     node *head, *p;
+//     head = new node;
+//     head->next = NULL;
+//     int t;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> t;
+//         p = new node;
+//         p->data = t;
+//         p->next = head->next;
+//         head->next = p;
+//     }
+//     // 指令读取执行
+//     int numCom;
+//     cin >> numCom;
+//     getchar();
+//     for (int i = 0; i < numCom; i++)
+//     {
+//         string str;
+//         cin >> str;
+//         if (str == "get")
+//         {
+//             int p;
+//             cin >> p;
+//             get(head, p);
+//         }
+//         if (str == "insert")
+//         {
+//             int p, k;
+//             cin >> p >> k;
+//             insert(head, p, k);
+//         }
+//         if (str == "show")
+//         {
+//             show(head);
+//         }
+//         if (str == "delete")
+//         {
+//             int p;
+//             cin >> p;
+//             del(head, p);
+//         }
+//     }
+//     return 0;
+// }
+
 int main()
 {
     // 第一行数据读取
@@ -380,36 +432,55 @@ int main()
         p->next = head->next;
         head->next = p;
     }
-    // 指令读取执行
+
+    // 存储指令的向量
+    vector<pair<string, pair<int, int>>> instructions;
+
+    // 指令读取存储
     int numCom;
     cin >> numCom;
-    getchar();
     for (int i = 0; i < numCom; i++)
     {
         string str;
         cin >> str;
-        if (str == "get")
+        if (str == "get" || str == "delete")
         {
             int p;
             cin >> p;
-            get(head, p);
+            instructions.push_back({str, {p, 0}});
         }
-        if (str == "insert")
+        else if (str == "insert")
         {
             int p, k;
             cin >> p >> k;
-            insert(head, p, k);
+            instructions.push_back({str, {p, k}});
         }
-        if (str == "show")
+        else if (str == "show")
+        {
+            instructions.push_back({str, {0, 0}});
+        }
+    }
+
+    // 执行存储的指令
+    for (const auto &instr : instructions)
+    {
+        if (instr.first == "get")
+        {
+            get(head, instr.second.first);
+        }
+        else if (instr.first == "insert")
+        {
+            insert(head, instr.second.first, instr.second.second);
+        }
+        else if (instr.first == "show")
         {
             show(head);
         }
-        if (str == "delete")
+        else if (instr.first == "delete")
         {
-            int p;
-            cin >> p;
-            del(head, p);
+            del(head, instr.second.first);
         }
     }
+
     return 0;
 }
