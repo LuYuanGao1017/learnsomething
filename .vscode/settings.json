@@ -45,6 +45,8 @@
         "typeinfo": "cpp",
         "iostream": "cpp",
         "ctime": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "map": "cpp",
+        "set": "cpp"
     }
 }
