@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-09-01 14:55:35
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-09-01 21:08:35
+ * @LastEditTime: 2023-09-01 21:38:19
  * @Description:
  * Depth First Search DFS
  * 递归是实现DFS一种方式 非递归比较麻烦
@@ -117,3 +117,54 @@
 
 // 问题B 组合输出
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 生成组合的非递归函数
+void generateCombinations(int n, int r) {
+    vector<int> combination(r);
+    
+    // 初始化组合的第一个元素
+    for (int i = 0; i < r; i++) {
+        combination[i] = i + 1;
+    }
+
+    bool done = false;
+    while (!done) {
+        // 输出当前组合
+        for (int i = 0; i < r; i++) {
+            cout << combination[i] << " ";
+        }
+        cout << endl;
+
+        // 生成下一个组合
+        int i = r - 1;
+        while (i >= 0 && combination[i] == n - r + i + 1) {
+            i--;
+        }
+
+        if (i < 0) {
+            done = true;  // 所有组合已生成完毕
+        } else {
+            combination[i]++;
+            for (int j = i + 1; j < r; j++) {
+                combination[j] = combination[j - 1] + 1;
+            }
+        }
+    }
+}
+
+int main() {
+    int n, r;
+    cin >> n >> r;
+
+    if (n < r || n <= 0 || r <= 0) {
+        return 1;
+    }
+
+    generateCombinations(n, r);
+
+    return 0;
+}
