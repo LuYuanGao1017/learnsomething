@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-09-01 14:55:35
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-09-01 17:26:39
+ * @LastEditTime: 2023-09-01 17:32:56
  * @Description:
  * Depth First Search DFS
  * 递归是实现DFS一种方式 非递归比较麻烦
@@ -31,6 +31,7 @@ int w[maxn], v[maxn];
 //     DFS(index + 1, sumW + w[index], sumV + v[index]);
 // }
 
+// 剪枝儿:通过题目条件限制节省计算量的方法
 void DFS(int index, int sumW, int sumV)
 {
     if (index == n)
