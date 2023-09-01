@@ -2,7 +2,7 @@
  * @Author: LynnGao
  * @Date: 2023-08-29 21:21:07
  * @LastEditors: LynnGao
- * @LastEditTime: 2023-08-31 11:47:33
+ * @LastEditTime: 2023-09-01 14:51:04
  * @Description:
  * @FilePath: \learnsomething\an\chapter7\linked_list_process.cpp
  */
@@ -364,57 +364,6 @@ void del(node *L, int pos)
     printf("delete OK\n");
 }
 
-// int main()
-// {
-//     // 第一行数据读取
-//     int n;
-//     cin >> n;
-//     node *head, *p;
-//     head = new node;
-//     head->next = NULL;
-//     int t;
-//     for (int i = 0; i < n; i++)
-//     {
-//         cin >> t;
-//         p = new node;
-//         p->data = t;
-//         p->next = head->next;
-//         head->next = p;
-//     }
-//     // 指令读取执行
-//     int numCom;
-//     cin >> numCom;
-//     getchar();
-//     for (int i = 0; i < numCom; i++)
-//     {
-//         string str;
-//         cin >> str;
-//         if (str == "get")
-//         {
-//             int p;
-//             cin >> p;
-//             get(head, p);
-//         }
-//         if (str == "insert")
-//         {
-//             int p, k;
-//             cin >> p >> k;
-//             insert(head, p, k);
-//         }
-//         if (str == "show")
-//         {
-//             show(head);
-//         }
-//         if (str == "delete")
-//         {
-//             int p;
-//             cin >> p;
-//             del(head, p);
-//         }
-//     }
-//     return 0;
-// }
-
 int main()
 {
     // 第一行数据读取
@@ -487,85 +436,58 @@ int main()
 
 // 问题B链表排序
 
-// #include <iostream>
-// #include <algorithm>
-// using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+struct stu
+{
+    int id, score;
+    stu *next;
+    stu(int sid, int scr) : id(sid), score(scr), next(nullptr) {}
+};
 
-// struct stu{
-//     int id, score;
-// };
+bool cmp(const stu *a, const stu *b)
+{
+    return a->id < b->id;
+}
 
-// int main(){
-//     int n, m;
-//     cin >> n >> m;
-//     return 0;
-// }
+void print(stu *head)
+{
+    while (head)
+    {
+        std::cout << head->id << ' ' << head->score <<std::endl;
+        head = head->next;
+    }
+}
 
-// #include <iostream>
-// #include <vector>
-// #include <algorithm>
-
-// struct ListNode {
-//     int student_id;
-//     int score;
-//     ListNode* next;
-
-//     ListNode(int id, int scr) : student_id(id), score(scr), next(nullptr) {}
-// };
-
-// bool compare_students(const ListNode* a, const ListNode* b) {
-//     return a->student_id < b->student_id;
-// }
-
-// void print_list(ListNode* head) {
-//     while (head) {
-//         std::cout << head->student_id << " " << head->score << std::endl;
-//         head = head->next;
-//     }
-// }
-
-// int main() {
-//     int N, M;
-//     std::cin >> N >> M;
-
-//     std::vector<ListNode*> students;
-
-//     // Read data for list 'a'
-//     for (int i = 0; i < N; ++i) {
-//         int id, score;
-//         std::cin >> id >> score;
-//         students.push_back(new ListNode(id, score));
-//     }
-
-//     // Read data for list 'b'
-//     for (int i = 0; i < M; ++i) {
-//         int id, score;
-//         std::cin >> id >> score;
-//         students.push_back(new ListNode(id, score));
-//     }
-
-//     // Sort the students vector using sort function
-//     std::sort(students.begin(), students.end(), compare_students);
-
-//     // Reconstruct the sorted linked list
-//     ListNode dummy(0, 0);
-//     ListNode* current = &dummy;
-//     for (ListNode* student : students) {
-//         current->next = student;
-//         current = student;
-//     }
-//     current->next = nullptr;
-
-//     // Print the sorted list
-//     print_list(dummy.next);
-
-//     // Clean up memory
-//     for (ListNode* student : students) {
-//         delete student;
-//     }
-
-//     return 0;
-// }
+int main()
+{
+    int n, m;
+    std::cin >> n >> m;
+    std::vector<stu *> stus;
+    for (int i = 0; i < n; i++)
+    {
+        int id, s;
+        std::cin >> id >> s;
+        stus.push_back(new stu(id, s));
+    }
+    for (int i = 0; i < m; i++)
+    {
+        int id, s;
+        std::cin >> id >> s;
+        stus.push_back(new stu(id, s));
+    }
+    std::sort(stus.begin(), stus.end(), cmp);
+    stu *L = new stu(0, 0);
+    stu *p = L;
+    for (stu *s : stus)
+    {
+        p->next = s;
+        p = s;
+    }
+    print(L->next);
+    return 0;
+}
 
 // 问题C
 /* #include <iostream>
@@ -617,7 +539,7 @@ int main()
 
 // 问题D
 
-#include <iostream>
+/* #include <iostream>
 #include <algorithm>
 int search(int Arr[], int v, int left, int right)
 {
@@ -671,4 +593,160 @@ int main()
         }
     }
     return 0;
-}
+} */
+
+// // 问题E 单链表反转
+// #include <iostream>
+// struct node
+// {
+//     int data;
+//     node *next;
+// };
+
+// void print(node *L)
+// {
+//     while (L)
+//     {
+//         std::cout << L->data << ' ';
+//         L = L->next;
+//     }
+//     std::cout << '\n';
+// }
+
+// void link_reverse(node * &head) {
+//     node *prev = nullptr;
+//     node *current = head;
+//     node *nextNode = nullptr;
+
+//     while (current) {
+//         nextNode = current->next;
+//         current->next = prev;
+//         prev = current;
+//         current = nextNode;
+//     }
+
+//     head = prev; // 更新原链表头为反转后的链表头
+// }
+
+// int main()
+// {
+//     int n;
+//     while (std::cin >> n)
+//     {
+//         if (n == 0)
+//         {
+//             std::cout << "list is empty\n";
+//         }
+//         // 创建单链表
+//         else
+//         {
+//             node *L, *p;
+//             L = new node;
+//             L->next = nullptr;
+//             p = L;
+//             for (int i = 0; i < n; i++)
+//             {
+//                 node *q = new node;
+//                 int x;
+//                 std::cin >> x;
+//                 q->data = x;
+//                 q->next = nullptr;
+//                 p->next = q;
+//                 p = q;
+//             }
+//             print(L->next); // 输出反转前
+//             link_reverse(L->next); //反转
+//             print(L->next);
+//         }
+//     }
+
+//     return 0;
+// }
+
+// 问题F 有序单链表删除重复元素
+// set中元素不会重复 用来记录
+// #include <iostream>
+// #include <unordered_set>
+// struct node
+// {
+//     int data;
+//     node *next;
+// };
+
+// void del_dup(node *head)
+// {
+//     std::unordered_set<int> seen;
+//     node *h, *cur;
+//     h = head->next;
+//     seen.insert(h->data);
+//     cur = h->next;
+//     while (cur)
+//     {
+//         if (seen.find(cur->data) != seen.end())
+//         {
+//             h->next = cur->next;
+//             delete cur;
+//             cur = h->next;
+//         }
+//         else
+//         {
+//             seen.insert(cur->data);
+//             h = cur;
+//             cur = cur->next;
+//         }
+//     }
+// }
+
+// void print(node *head)
+// {
+//     node *p = head->next;
+//     while (p)
+//     {
+//         std::cout << p->data << ' ';
+//         p = p->next;
+//     }
+//     std::cout << '\n';
+//     return;
+// }
+
+// int main()
+// {
+//     int n;
+//     while (std::cin >> n)
+//     {
+//         if (n == 0)
+//         {
+//             std::cout << "list is empty\n";
+//             continue;
+//         }
+//         // 创建单链表 尾插法
+//         else
+//         {
+//             node *L, *p;
+//             L = new node;
+//             L->next = nullptr;
+//             p = L;
+//             int d;
+//             for (int i = 0; i < n; i++)
+//             {
+//                 std::cin >> d;
+//                 node *q = new node;
+//                 q->data = d;
+//                 q->next = nullptr;
+//                 p->next = q;
+//                 p = q;
+//             }
+//             print(L);   // 输出删除前
+//             del_dup(L); // 删除重复
+//             print(L);   // 输出删除后的
+//             // 释放链表节点内存
+//             while (L)
+//             {
+//                 node *temp = L;
+//                 L = L->next;
+//                 delete temp;
+//             }
+//         }
+//     }
+//     return 0;
+// }
